@@ -1,0 +1,30 @@
+/* Import de fonte Roboto */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
+* {
+    box-sizing: border-box;
+    font-size: 12pt;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    font-family: 'roboto', 'sans-serif';
+}
+
+/* fonte dos icones utilizados na navbar */
+@font-face {
+    font-family: 'Icons';
+    font-style: normal;
+    src: url('../fontawesome/webfonts/fa-solid-900.woff2') format('woff');
+}
+
+body {
+    display: grid; /* Transforma o body em um plano bidimensional, melhor para se trabalhar */
+    background-color:  rgb(30, 30, 30); /* COR PRETO SUAVE */
+    background: linear-gradient(90deg, rgb(0, 0, 0), #261219, rgb(0, 0, 0));
+}
+
+a {
+    text-decoration: none;
+}

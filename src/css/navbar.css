@@ -1,0 +1,104 @@
+/* Barra de navegação do site */
+    .principal-header {
+        grid-column: 1/5;
+        grid-row: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: black;
+        position: fixed;
+        z-index: 3;
+        width: 100%;
+        height: 100%;
+        max-height: 75px;
+    }
+
+    .logo {
+        display: inline-block;
+        margin: 10px auto auto 20px;
+        height: 80%;
+        max-height: 100%;
+        width: auto;
+    }
+
+/* Botoes ao meio */
+    nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 70%;
+    }
+
+    nav ul{
+        list-style-type: none;
+        display: flex;
+        gap: 2rem;
+    }
+
+    nav li a {
+        text-decoration: none;
+        color: white;
+    }
+
+    nav li a:hover{
+        color: #d13639;
+    }
+
+    .nav-item {
+        font-family: serif; 
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+/* Botão do "Jogue agora" na direita */
+    .btn-login {
+        height: 50%;
+        align-self: center;
+        font-family: Arial;
+        color: white;
+        font-weight: bold;
+        padding: 10px 20px 10px 20px;
+        background-color: #d13639;
+        border-radius: 5px;
+        text-decoration: none;
+        margin-right: 20px;
+        border-radius: 30px;
+    }
+
+    /* Icone positionado antes do botão */
+    .btn-login::before {
+        font-family: 'Icons';
+        content: "\f007"; /* Icone de usuario */
+        margin-right: 6px;
+    }
+
+    .btn-login:hover {
+        color: black;
+    }
+
+/* Dropdown box - Caixa que aparece no hover do botão "Mais" */
+    .dropdown-content {
+        position: absolute;
+        display: none;
+        border-radius: 5px;
+        max-width: 200px;
+    }
+
+    .dropdown-content ul {
+        flex-direction: column;
+        padding: 10px;
+        width: 100%;
+        gap: 15px;
+        border-top: 4px solid #d13639;
+        background-color: #1d1d1d;
+    }
+
+    .dropdown-content ul li a {
+        font-size: 1rem;
+        
+    }
+
+    nav ul li:hover .dropdown-content {
+        display: block;
+        padding-top: 22px;
+    }
