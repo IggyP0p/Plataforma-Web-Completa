@@ -1,5 +1,3 @@
-### Teste o site clicando <a href="https://ritogomes.vercel.app" target="_blank">Aqui!</a>
+## Site criado na disciplina de Desenvolvimento Web como critério parcial para obtenção do diploma de Bacharel em Sistemas de Informação.
 
-#[![Visite o site]](https://ritogomes.vercel.app)
-
-#[![Visite o site]](https://img.shields.io/badge/Visite%20o%20site-000?style=for-the-badge&logo=vercel&logoColor=white)](https://ritogomes.vercel.app)
+# [[Visite o site]](https://ritogomes.vercel.app)
