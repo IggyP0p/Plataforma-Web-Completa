@@ -50,6 +50,13 @@
         font-size: 1.2rem;
     }
 
+    /* posicionando o icone "depois" da class icon */
+    .icon::after {
+        font-family: 'Icons';
+        content: "\f0d7"; /* seta para baixo */
+        margin-left: 5px;
+    }
+
 /* Botão do "Jogue agora" na direita */
     .btn-login {
         height: 50%;
