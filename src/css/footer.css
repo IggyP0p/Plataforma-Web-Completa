@@ -1,0 +1,77 @@
+/* Footer base utilizado nos sites, é necessário adicionar ele no GRID do body 
+ * utiliza o grid-column total da página e 150px de grid-row
+*/
+
+footer {
+    padding: 25px 40px 10px 40px;
+    background-color: rgb(30, 30, 30);
+
+    display: flex;
+    flex-direction: column;
+}
+
+footer ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    list-style-type: none;
+}
+
+footer ul li a {
+    font-size: 0.8rem;
+    color: white;
+}
+
+.redes {
+    font-family: 'Brands';
+    font-size: 1rem;
+    color: white;
+    display: flex;
+    gap: 15px;
+}
+
+.git::after {
+    content: '\f09b';
+}
+
+.insta::after {
+    content: '\f16d';
+}
+
+.discord::after {
+    content: '\f392';
+}
+
+.twitter::after {
+    content: '\e61b';
+}
+
+.tiktok::after {
+    content: '\e07b';
+}
+
+.youtube::after {
+    content: '\f167';
+}
+
+footer hr {
+    margin-top: 10px;
+}
+
+.fundo {
+    display: flex;
+    justify-content: space-between;
+    margin: auto 0px 20px 0px;
+}
+
+footer p {
+    margin-top: auto;
+    font-size: 0.9rem;
+    color: white;
+}
+
+footer a {
+    font-size: 0.9rem;
+    color: white;
+    align-self: flex-end;
+}

@@ -25,6 +25,12 @@
     src: url('../fontawesome/webfonts/fa-brands-400.woff2') format('woff');
 }
 
+@font-face {
+    font-family: 'Teste';
+    font-style: normal;
+    src: url('../fontes/Fonts_Riot/BeaufortForLoL-TTF/BeaufortforLOL-Light.ttf') format('truetype');
+}
+
 body {
     display: grid; /* Transforma o body em um plano bidimensional, melhor para se trabalhar */
     background-color:  rgb(30, 30, 30); /* COR PRETO SUAVE */
