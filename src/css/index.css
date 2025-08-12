@@ -7,7 +7,7 @@
 
 body {
     grid-template-columns: repeat(4, 1fr); /* 4 colunas de tamanho igual */
-    grid-template-rows: 75px 625px 625px; /* 3 linhas de tamanhos diferentes */
+    grid-template-rows: 75px 625px 485px 700px 450px 150px; /* 6 linhas de tamanhos diferentes */
 }
 
 /* Secao de apresentacao do site */
@@ -40,7 +40,7 @@ body {
     }
 
 /* Secao principal do site: Noticias, Jogos,  */
-    main {
+    .noticias {
         /* Posicionamento no GRID do body*/
         grid-column: 1/5;
         grid-row: 3;
@@ -48,16 +48,11 @@ body {
         /* Criando um GRID próprio */
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 125px 180px 180px 140px;
+        grid-template-rows: 125px 180px 180px;
         
     }
 
-    main section {
-        display: flex;
-        flex-direction: row;
-    }
-
-    main header {
+    .noticias header {
         /* Posicionamento no GRID do body*/
         grid-row: 1;
         grid-column: 1/3;
@@ -70,7 +65,7 @@ body {
         margin: 10px 60px 10px 10px;
     }
 
-    main header h2 {
+    header h2 {
         font-size: 3rem;
         font-weight: bold;
         color: white;
@@ -78,7 +73,7 @@ body {
         margin: 15px 0px 0px 20px;
     }
 
-    main header a {
+    .noticias header a {
         align-self: flex-end;
         margin: auto 0px auto auto;
         background-color: rgba(60, 60, 60, 0.4); /* COR PRETO SUAVE */
@@ -88,7 +83,7 @@ body {
         color: white;
     }
 
-    main article {
+    .noticias article {
         display: flex;
         flex-direction: row;
         gap: 10px;
@@ -154,4 +149,96 @@ body {
 
     @keyframes article_animation {
         
+    }
+
+    .nossos-jogos {
+        /* Posicionamento no GRID do body*/
+        grid-column: 1/5;
+        grid-row: 4;
+
+        /* Criando um GRID próprio */
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 20px;
+        grid-template-rows: 125px 300px 275px;
+        
+    }
+
+    .nossos-jogos header {
+        /* Posicionamento no GRID do body*/
+        grid-column: 1/7;
+        grid-row: 1;
+    }
+
+    .nossos-jogos .LOL {
+        grid-column: 2/4;
+        grid-row: 2;
+    }
+
+    .nossos-jogos .valoroso {
+        grid-column: 4/6;
+        grid-row: 2;
+    }
+
+    .nossos-jogos .TFT {
+        grid-column: 3/5;
+        grid-row: 3;
+    }
+
+    .nossos-jogos img {
+        width: 100%;
+        height: auto;
+    }
+
+    .trabalhe-conosco {
+        /* Posicionamento no GRID do body*/
+        grid-column: 1/5;
+        grid-row: 5;
+
+        display: flex;
+        flex-direction: row;
+        background: linear-gradient(100deg, rgb(54, 69, 79), rgb(25, 35, 40));
+    }
+
+    .texto-trabalhe-conosco {
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+        width: 40%;
+        text-align: justify;
+        color: white;
+    }
+
+    .texto-trabalhe-conosco h2 {
+        font-size: 2.5rem;
+    }
+
+    .trabalhe-conosco img {
+        height: 70%;
+        width: auto;
+        margin: auto;
+        border: 1px solid white;
+        transform: rotate(8deg);
+    }
+
+    .trabalhe-conosco p {
+        margin-top: 80px;
+        margin-bottom: 5px;
+    }
+
+    .texto-trabalhe-conosco button {
+        width: 45%;
+        height: 15%;
+        font-size: 2rem;
+        border-radius: 10px;
+        margin: 0px auto auto auto;
+    }
+
+    footer {
+        /* Posicionamento no GRID do body*/
+        grid-column: 1/5;
+        grid-row: 6;
+
+        background-color: rgb(30, 30, 30);
+
     }
