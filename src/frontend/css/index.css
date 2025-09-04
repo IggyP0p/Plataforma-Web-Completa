@@ -1,0 +1,324 @@
+body {
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas de tamanho igual */
+    grid-template-rows: 25px 625px 565px 900px 450px 160px; /* 6 linhas de tamanhos diferentes */
+    /* ORDEM: HEADER, APRESENTACAO, NOTICIAS, NOSSOS JOGOS, CONTRATANDO, FOOTER*/
+    gap: 50px;
+}
+
+/* Secao de apresentacao do site */
+    .apresentacao {
+        grid-column: 1/5;
+        grid-row: 2;
+        overflow: hidden;
+    }
+
+    .welcome-photo {
+        width: 100%;
+        max-width: 1350px;
+        height: auto;
+    }
+
+    @font-face {
+        font-family: 'Signature';
+        src: url('../../utils/fontes/beautiful-kisses/Beautiful\ Kisses.ttf') format('truetype');
+    }
+
+    /* Frase de efeito da apresentacao */
+    .frs-eft span {
+        font-family: 'Signature';
+        font-size: 40pt;
+        position: absolute;
+        display: block;
+        color: rgb(0, 0, 0); 
+        top: 130px;
+        left: 50px;
+    }
+
+/* Secao principal do site: Noticias, Jogos,  */
+    .noticias {
+        /* Posicionamento no GRID do body*/
+        grid-column: 1/5;
+        grid-row: 3;
+
+        /* Criando um GRID próprio */
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: 85px 120px 120px 120px 120px;
+        
+        margin: 0px 50px 0px 50px; 
+    }
+
+    .noticias header {
+        /* Posicionamento no GRID do body*/
+        grid-row: 1;
+        grid-column: 1/6;
+
+        /* Transformando em flexbox */
+        display: flex;
+        flex-direction: row;
+    }
+
+    header h2 {
+        font-size: 3rem;
+        font-weight: bold;
+        color: white;
+
+    }
+
+    .noticias header a {
+        align-self: flex-end;
+        margin: auto 0px auto auto;
+        background-color: rgba(60, 60, 60, 0.4); /* COR PRETO SUAVE */
+        padding: 8px 12px 8px 12px;
+        border-radius: 15px;
+        font-weight: bold;
+        color: white;
+    }
+
+    .noticias article {
+        border-radius: 10px;
+        margin: 10px;
+    }
+
+    article img {
+        border-radius: 10px;
+    }
+    
+    .article-principal {
+        grid-row: 2/5;
+        grid-column: 1/4;
+
+        display: grid;
+        grid-template-columns: 1;
+        grid-template-rows: 360px 120px;
+
+    }
+
+    .img-container {
+        grid-column: 1;
+        grid-row: 1;
+
+        margin: 0;
+        overflow: hidden;
+        border-radius: 10px;
+        transition: box-shadow 0.3s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .img-container:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .article-principal img {
+        height: 110%;
+        width: auto;
+        transition: transform 0.3s ease;
+    }
+
+    .article-principal img:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+
+    .sub-article{
+        background-color: rgba(60, 60, 60, 0.4); /* COR PRETO SUAVE */
+        display: flex;
+        flex-direction: row;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .sub-article:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 0, 0, 0.7);
+    }
+
+    .primeira-article {
+        grid-row: 2;
+        grid-column: 4/6;
+    }
+
+    .segunda-article {
+        grid-row: 3;
+        grid-column: 4/6;
+    }
+
+    .terceira-article {
+        grid-row: 4;
+        grid-column: 4/6;
+    }
+
+    .quarta-article {
+        grid-row: 5;
+        grid-column: 4/6;
+    }
+
+    .texto-noticias {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .texto-noticias p {
+        font-weight: bold;
+        text-align: justify;
+        color: white;
+        
+    }
+
+    .texto-principal {
+        font-size: 18pt;
+    }
+
+    .sub-texto{
+        margin-left: 10px;
+        font-size: 11pt;
+    }
+
+    .texto-noticias::after {
+        font-family: 'Icons';
+        content: "\f0c2";
+        font-size: 1rem;
+        align-self: flex-start;
+        margin-top: auto;
+        margin-left: 10px;
+        color: white;
+    }
+
+    .nossos-jogos {
+        /* Posicionamento no GRID do body*/
+        /* Possui 700px de row-grid*/
+        grid-column: 1/5;
+        grid-row: 4;
+
+        /* Criando um GRID próprio */
+        display: grid;
+        grid-template-columns: 1;
+        grid-template-rows: 125px 775px;
+        
+        margin: 0px 50px 0px 50px; 
+    }
+
+    .nossos-jogos header {
+        /* Posicionamento no GRID pai*/
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .container-jogos {
+        /* Posicionamento no GRID pai*/
+        grid-column: 1;
+        grid-row: 2;
+
+        /* Possui 775px */
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 325px 300px 150px;
+
+        gap: 30px; 
+    }
+
+    .card {
+        cursor: pointer;
+    }
+
+    .card:hover {
+        border: 2.5px solid white;
+    }
+
+    .container-jogos .LOL {
+        grid-column: 1/3;
+        grid-row: 1;
+    }
+
+    .container-jogos .valoroso {
+        grid-column: 3/5;
+        grid-row: 1;
+    }
+
+    .container-jogos .TFT {
+        grid-column: 2/4;
+        grid-row: 2;
+    }
+
+    .container-jogos img {
+        width: 100%;
+        height: auto;
+    }
+
+    .container-jogos a:hover {
+        border: 4px solid white;
+    }
+
+    .trabalhe-conosco {
+        /* Posicionamento no GRID do body*/
+        grid-column: 1/5;
+        grid-row: 5;
+
+        display: flex;
+        flex-direction: row;
+        background: linear-gradient(100deg, rgb(54, 69, 79), rgb(25, 35, 40));
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    .texto-trabalhe-conosco {
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+        width: 40%;
+        text-align: justify;
+        color: white;
+    }
+
+    .texto-trabalhe-conosco h2 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 2.5rem;
+    }
+
+    .trabalhe-conosco img {
+        height: 70%;
+        width: auto;
+        margin: auto;
+        border: 1px solid white;
+        transform: rotate(8deg);
+        transition: transform 0.3s ease;
+    }
+
+    .trabalhe-conosco img:hover {
+        transform: scale(1.05) rotate(8deg);
+    }
+
+    .trabalhe-conosco p {
+        font-family: 'Poppins', sans-serif;
+        margin-top: 80px;
+        margin-bottom: 5px;
+    }
+
+    .texto-trabalhe-conosco button {
+        width: 60%;
+        height: 15%;
+        font-size: 2rem;
+        border-radius: 50px;
+        margin: auto auto auto auto;
+        border: none;
+        padding: 15px 40px;
+        text-transform: uppercase;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+
+    .texto-trabalhe-conosco button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 242, 255, 0.4);
+    }
+
+    footer {
+        /* Posicionamento no GRID do body*/
+        grid-column: 1/5;
+        grid-row: 6;
+    }

@@ -9,20 +9,20 @@
 }
 
 :root {
-    font-family: 'roboto', 'sans-serif';
+    font-family: 'Teste', 'roboto', 'sans-serif';
 }
 
 /* fonte dos icones utilizados na navbar */
 @font-face {
     font-family: 'Icons';
     font-style: normal;
-    src: url('../fontawesome/webfonts/fa-solid-900.woff2') format('woff');
+    src: url('/src/utils/fontawesome/webfonts/fa-solid-900.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'Brands';
     font-style: normal;
-    src: url('../fontawesome/webfonts/fa-brands-400.woff2') format('woff');
+    src: url('/src/utils/fontawesome/webfonts/fa-brands-400.woff2') format('woff');
 }
 
 @font-face {

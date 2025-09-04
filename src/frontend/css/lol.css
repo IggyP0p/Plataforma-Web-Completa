@@ -1,0 +1,23 @@
+body {
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas de tamanho igual */
+    grid-template-rows: 25px 575px 565px 900px 160px; /* 6 linhas de tamanhos diferentes */
+    /* ORDEM: HEADER, APRESENTACAO, PERSONAGENS, CALL TO ACTION, FOOTER*/
+    gap: 50px;
+}
+
+.apresetacao {
+    grid-column: 1/5;
+    grid-row: 2;
+    overflow: hidden;
+}
+
+.apresetacao img {
+    height: auto;
+    width: 100%;
+}
+
+footer {
+    /* Posicionamento no GRID do body*/
+    grid-column: 1/5;
+    grid-row: 5;
+}
