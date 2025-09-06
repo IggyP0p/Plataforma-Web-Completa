@@ -27,7 +27,7 @@
                         Veja seus tickets, gerencie sua conta e receba ajuda rápido.
                     </p>
                 </div>
-                <button>
+                <button onclick="openModal()">
                     FAZER LOGIN
                 </button>
             </div>

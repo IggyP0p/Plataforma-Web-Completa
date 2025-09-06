@@ -14,20 +14,20 @@
     ?>
 
     <div class="apresentacao">
-
-    <!-- 
-        <img src="../../../utils/img/LOL_logo.png">
-
-        <p>
-            LEAGUE OF LEGENDS:um MOBA 5v5 em que as <br>
-            equipes batalham para destruir o Nexus inimigo.
-        </p>
-
-        <button>
-            JOGUE DE GRAÇA
-        </button>
-    -->
+        <div class="foreground">
+            <div class="moldura-logo">
+                <img src="../../utils/img/tft_logo.png">
+            </div>
         
+            <p>
+                Teamfight Tactics: um jogo estratégico de batalhas automáticas em <br>
+                que cada pessoa escolhe seus Campeões e tenta superar os oponentes.
+            </p>
+
+            <button>
+                JOGUE DE GRAÇA
+            </button>
+        </div>
     </div>
 
     <div class="ultimas-noticias">
@@ -74,7 +74,7 @@
             </div>
             <div class="noticia">
                 <div class="noticia-moldura">
-                    <img src="../../utils/img/tft_RivenChibi.avif">
+                    <img src="../../utils/img/tft_rivenChibi.png">
                 </div>
                 <div class="noticia-info">
                     <span class="noticia-categoria">ATUALIZAÇÕES DO JOGO</span>

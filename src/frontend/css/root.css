@@ -31,6 +31,18 @@
     src: url('../fontes/Fonts_Riot/BeaufortForLoL-TTF/BeaufortforLOL-Light.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Teste1';
+    font-style: normal;
+    src: url('../fontes/Fonts_Riot/Spiegel-TTF/Spiegel_TT_Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Teste2';
+    font-style: normal;
+    src: url('../fontes/Fonts_Riot/BeaufortForLoL-TTF/BeaufortforLOL-Heavy.ttf') format('truetype');
+}
+
 body {
     display: grid; /* Transforma o body em um plano bidimensional, melhor para se trabalhar */
     background-color:  rgb(30, 30, 30); /* COR PRETO SUAVE */

@@ -149,6 +149,13 @@ nav ul li:hover .dropdown-content {
     width: 100%;
 }
 
+.modal-container h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+
+}
+
 .modal-container input {
     font-size: 12pt;
     border-radius: 5px;

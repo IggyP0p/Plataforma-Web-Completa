@@ -14,20 +14,18 @@
     ?>
 
     <div class="apresentacao">
+        <div class="foreground">
+            <img src="../../utils/img/lol_logo.png">
 
-    <!-- 
-        <img src="../../../utils/img/LOL_logo.png">
+            <p>
+                LEAGUE OF LEGENDS: um MOBA 5v5 em que as <br>
+                equipes batalham para destruir o Nexus inimigo.
+            </p>
 
-        <p>
-            LEAGUE OF LEGENDS:um MOBA 5v5 em que as <br>
-            equipes batalham para destruir o Nexus inimigo.
-        </p>
-
-        <button>
-            JOGUE DE GRAÇA
-        </button>
-    -->
-        
+            <button>
+                JOGUE DE GRAÇA
+            </button>
+        </div>
     </div>
 
     <div class="ultimas-noticias">

@@ -1,12 +1,16 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const closeModal = document.getElementById('close-modal');
-    const modal = document.querySelector('.modal');
+function openModal(){
+    let modal = document.querySelector('.modal');
 
-    closeModal.onclick = () => {modal.style.display = 'none';}
+    modal.style.display = 'flex';
+}
 
-    function openModal(){
-        modal.style.display = 'flex';
-    }
+function closeModal(){
+    let modal = document.querySelector('.modal');
 
-    window.onclick = (e) => { if(e.target == modal) modal.style.display = 'none'; }
-});
+    modal.style.display = 'none';
+}
+
+window.onclick = (e) => { 
+    let modal = document.querySelector('.modal');
+    if(e.target == modal) modal.style.display = 'none'; 
+}

@@ -14,20 +14,17 @@
     ?>
 
     <div class="apresentacao">
+        <div class="foreground">
+            <img src="../../utils/img/vava_logo.png">
 
-    <!-- 
-        <img src="../../../utils/img/LOL_logo.png">
+            <p>
+                VALORANT – Jogo de tiro tático 5x5 estrelando Agentes com habilidades únicas
+            </p>
 
-        <p>
-            LEAGUE OF LEGENDS:um MOBA 5v5 em que as <br>
-            equipes batalham para destruir o Nexus inimigo.
-        </p>
-
-        <button>
-            JOGUE DE GRAÇA
-        </button>
-    -->
-        
+            <button>
+                JOGUE GRÁTIS
+            </button>
+        </div>
     </div>
 
     <div class="ultimas-noticias">

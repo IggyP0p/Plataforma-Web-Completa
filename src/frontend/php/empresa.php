@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="../css/root.css">
     <link rel="stylesheet" href="../css/empresa.css">
+    
 </head>
 <body>
 
@@ -13,33 +14,55 @@
         include("../../includes/navbar.html")
     ?>
 
-    <section class="apresentacao">
-        <!--
-        <div class="container-imagem">
-            <img src="../../utils/img/sede_rito.jpg">
+    <section class="slideshow-container">
+        
+        <div class="slide fade">
+            <div class="slide-texto">
+                <span>NOSSOS VALORES</span>
+                <h2>1. LEVAMOS NOSSOS <br> JOGOS A SÉRIO</h2>
+                <p>
+                    Os jogadores merecem alguém que se importe tanto quanto eles. Somos tão envolvidos quanto as pessoas que veem jogos como um objetivo de vida, porque nos identificamos com elas.
+                </p>
+            </div>
+            <img src="../../utils/img/empresa_jogos.png">
         </div>
 
-        <p>
-            1. Nosso bolso sempre vem em primeiro lugar
-            <br>
-            <br>
-            2. Seriedade nenhuma com os jogos
-            <br>
-            <br>
-            3. Sonhe mas não entregue
-            <br>
-            <br>
-            4. Nós viemos para te viciar
-            <br>
-            <br>
-            5. Na rito o que importa é o patrão
-        </p>
-
-        <div class="detalhes-valores">
-
+        <div class="slide fade">
+            <div class="slide-texto">
+                <span>NOSSOS VALORES</span>
+                <h2>2. NA RIOT, SOMOS UM</h2>
+                <p>
+                    Nosso foco está no jogador, não no produto. Colaboramos entre equipes e com o mundo todo para criar experiências únicas da Riot que são muito mais do que a soma de suas partes.
+                </p>
+            </div>  
+            <img src="../../utils/img/empresa_escritorio.jpg">
         </div>
-        -->
+
+        <div class="slide fade">
+            <div class="slide-texto">
+                <span>NOSSOS VALORES</span>
+                <h2>3. O JOGADOR SEMPRE <br> VEM EM PRIMEIRO <br> LUGAR</h2>
+                <p>
+                    Tudo que fazemos é para os jogadores. Nosso foco constante nos jogadores nos faz criar experiências de jogo mais significativas e duradouras.
+                </p>
+            </div>
+            <img src="../../utils/img/empresa_campeonato.png">
+        </div>
+
+        <!-- Botões que movem o slide -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        
+        <div class="dots">
+            <span class="dot" onclick="currentSlide(0)"></span> 
+            <span class="dot" onclick="currentSlide(1)"></span> 
+            <span class="dot" onclick="currentSlide(2)"></span> 
+        </div>
+        
     </section>
+
+    
+    
 
     <section class="quem-somos">
         <div class="container">
@@ -73,6 +96,7 @@
     <?php
         include("../../includes/footer.html")
     ?>
-    
+
+    <script src="../js/slideShow.js"></script>
 </body>
 </html>
