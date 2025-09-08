@@ -97,17 +97,32 @@ nav li a:hover{
 }
 
 .dropdown-content ul {
+    display: flex;
     flex-direction: column;
     padding: 10px;
     width: 100%;
-    gap: 15px;
+    gap: 2px;
     border-top: 4px solid #d13639;
-    background-color: #1d1d1d;
+    background-color: RGB(20, 20, 20);
+}
+
+.dropdown-content li {
+    display: flex;
+    
 }
 
 .dropdown-content ul li a {
-    font-size: 1rem;
+    font-size: 0.9rem;
+    width: 100%; height: auto;
+    font-weight: 100;
+    padding: 10px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
     
+}
+
+.dropdown-content ul li a:hover {
+    background-color: rgba(34, 34, 34, 1);
 }
 
 nav ul li:hover .dropdown-content {
@@ -115,7 +130,56 @@ nav ul li:hover .dropdown-content {
     padding-top: 22px;
 }
 
-/* Modal box */
+/* Modal de quando o usuario esta logado */
+.menu {
+    display: none; /* começa escondido */
+    position: fixed;
+    
+}
+
+.menu-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    
+    right: 20px;
+    top: 71px;
+    width: 10%; height: auto;
+    padding: 25px;
+    background-color: RGB(20, 20, 20);
+
+    border-top: 4px solid #d13639;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.menu-content ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    
+}
+
+.menu-content ul li {
+    display: flex;
+}
+
+.menu-content ul li a {
+    color: white;
+    width: 100%; height: auto;
+    padding: 10px;
+    border-radius: 2px;
+    font-size: 10pt;
+    transition: all 0.3s ease;
+}
+
+.menu-content ul li a:hover {
+    background-color: rgba(34, 34, 34, 1);
+}
+
+/* Modal box para login e cadastro */
 .modal {
     display: none; /* começa escondido */
     position: fixed;
@@ -145,8 +209,20 @@ nav ul li:hover .dropdown-content {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     gap: 5px;
     width: 100%;
+}
+
+.modal-container form {
+    width: 55%;
+    height: 80%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .modal-container h2 {
@@ -171,10 +247,22 @@ nav ul li:hover .dropdown-content {
     outline: none; /* Remove a borda padrão do navegador */
 }
 
+.modal-container span {
+    font-size: 10pt;
+    align-self: flex-start;
+    text-align: left;
+}
+
+.warning {
+    color: rgb(248, 51, 51);
+    margin-left: 5px;
+}
+
 .modal-container button {
     padding: 10px 20px;
     border-radius: 5px;
     font-weight: bold;
+    
     cursor: pointer;
     transition: background-color 0.3s ease; /* Animação para o hover */
     background-color: #d13639;

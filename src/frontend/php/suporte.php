@@ -10,7 +10,7 @@
 <body>
 
     <?php
-        include("../../includes/navbar.html")
+        include("../../includes/navbar.php")
     ?>
 
     <section class="introducao">

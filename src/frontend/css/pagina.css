@@ -1,0 +1,87 @@
+body {
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas de tamanho igual */
+    grid-template-rows: 75px 900px 160px; /* 6 linhas de tamanhos diferentes */
+    /* ORDEM: HEADER, APRESENTACAO, NOTICIAS, PERSONAGENS, MAPAS, FOOTER*/
+
+}
+
+main {
+    grid-column: 1/5;
+    grid-row: 2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+
+    background-color: white;
+}
+
+.imagem-moldura{
+    width: 980px;
+    height: 550px;
+
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+.imagem-moldura img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+main h1 {
+    font-family: 'Roboto';
+    font-size: 38pt;
+    text-transform: uppercase;
+    font-weight: bolder;
+    text-align: center;
+}
+
+main .subtitulo {
+    font-family: 'Roboto';
+    font-size: 18pt;
+    text-align: center;
+}
+
+main hr {
+    border: none; /* Remove a borda padrão */
+    border-top: 5px solid #696969;
+}
+
+main span {
+    font-size: 10pt;
+}
+
+main .conteudo {
+    display: flex;
+    flex-direction: column;
+
+
+    margin: 80px;
+}
+
+main .conteudo h2 {
+    display: block;
+    text-align: left;
+    font-size: 14pt;
+}
+
+main .conteudo p {
+    display: block;
+    text-align: justify;
+    font-size: 12pt;
+}
+
+main .conteudo img {
+    width: 100%;
+    height: auto;
+
+}
+
+footer {
+    grid-column: 1/5;
+    grid-row: 3;
+}

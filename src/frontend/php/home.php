@@ -10,7 +10,7 @@
 <body>
 
     <?php
-        include("../../includes/navbar.html")
+        include("../../includes/navbar.php")
     ?>
 
     <section class="apresentacao">
@@ -33,6 +33,7 @@
             <div class="img-container">
                 <img src="../../utils/img/oldFaker.png">
             </div>
+            
 
             <div class="texto-noticias">
                 <p class="texto-principal">
