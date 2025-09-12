@@ -45,7 +45,7 @@
                     <button 
                         class="btn-submit" 
                         type="button" 
-                        onclick="ProcessarDados(<?= $id_post ?>)"
+                        onclick="ProcessarDados(<?=$id_post?>)"
                     >
                         ATUALIZAR
                     </button>
