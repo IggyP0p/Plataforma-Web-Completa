@@ -1,11 +1,11 @@
 <?php
 
 // Configurações de conexão com o banco de dados
-$host = 'localhost';
+$host = 'postgres.railway.internal';
 $port = '5432';
-$dbname = 'Rito_Gomes';
+$dbname = 'railway';
 $user = 'postgres';
-$password = 'root';
+$password = 'ddouIhEPoyTooNTIOyLkXhkIBIWRsaEu';
 
 try {
     // Cria um novo objeto PDO
