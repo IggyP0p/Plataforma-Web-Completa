@@ -90,7 +90,7 @@
     $bytes = file_get_contents($temp_file);
     unlink($temp_file);
 
-    file_put_contents("logs.txt", "ARQUIVO LIDO COM SUCESSO" . "\n", FILE_APPEND);
+    //file_put_contents("logs.txt", "ARQUIVO LIDO COM SUCESSO" . "\n", FILE_APPEND);
 
 
     // Checa se deve atualizar ou criar o post

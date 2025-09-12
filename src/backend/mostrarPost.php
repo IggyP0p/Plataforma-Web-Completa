@@ -39,7 +39,7 @@
                             </div>
                         </div>
                         <button class="alterar" type="submit"></button>
-                        <button class="excluir" onclick="excluirPost(this)"></button>
+                        <button class="excluir" type="button" onclick="excluirPost(this)"></button>
                     </form>
                 html;
     }

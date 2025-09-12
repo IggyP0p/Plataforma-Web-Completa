@@ -30,7 +30,7 @@
 
         }   catch (PDOException $e) {
             // Se ocorrer um erro, exibe a mensagem de erro
-            file_put_contents("logs.txt", "Erro na consulta: " . $e->getMessage() . "\n", FILE_APPEND);
+            //file_put_contents("logs.txt", "Erro na consulta: " . $e->getMessage() . "\n", FILE_APPEND);
 
         }
         
@@ -52,7 +52,7 @@
 
         } catch (PDOException $e) {
             // Se ocorrer um erro, exibe a mensagem de erro
-            file_put_contents("../../backend/logs.txt", "Erro na consulta: " . $e->getMessage() . "\n", FILE_APPEND);
+            //file_put_contents("../../backend/logs.txt", "Erro na consulta: " . $e->getMessage() . "\n", FILE_APPEND);
 
         }
     }
@@ -80,7 +80,7 @@
 
         } catch (PDOException $e) {
             // Se ocorrer um erro, exibe a mensagem de erro
-            file_put_contents("logs.txt", "Erro na consulta: " . $e->getMessage() . "\n", FILE_APPEND);
+            //file_put_contents("logs.txt", "Erro na consulta: " . $e->getMessage() . "\n", FILE_APPEND);
 
         }
 
@@ -117,7 +117,7 @@
 
         } catch (PDOException $e) {
             // Se ocorrer um erro, exibe a mensagem de erro
-            file_put_contents("logs.txt", "Erro na consulta: " . $e->getMessage() . "\n", FILE_APPEND);
+            //file_put_contents("logs.txt", "Erro na consulta: " . $e->getMessage() . "\n", FILE_APPEND);
 
         }
     }
@@ -140,7 +140,7 @@
 
         } catch (PDOException $e) {
             // Se ocorrer um erro, exibe a mensagem de erro
-            file_put_contents("logs.txt", "Erro na consulta: " . $e->getMessage() . "\n", FILE_APPEND);
+            //file_put_contents("logs.txt", "Erro na consulta: " . $e->getMessage() . "\n", FILE_APPEND);
 
         }
     }
@@ -172,7 +172,7 @@
 
         } catch (PDOException $e) {
             // Se ocorrer um erro, exibe a mensagem de erro
-            file_put_contents("logs.txt", "Erro na consulta: " . $e->getMessage() . "\n", FILE_APPEND);
+            //file_put_contents("logs.txt", "Erro na consulta: " . $e->getMessage() . "\n", FILE_APPEND);
 
         }
     }

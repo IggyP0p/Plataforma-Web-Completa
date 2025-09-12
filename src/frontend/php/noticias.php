@@ -1,3 +1,9 @@
+<?php
+
+    session_start();
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,6 +11,10 @@
     <title>Noticias | Rito Gomes</title>
     <link rel="stylesheet" href="../css/root.css">
     <link rel="stylesheet" href="../css/noticias.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <script src="../frontend/js/modal.js"></script>
+    <script src="../js/modal.js"></script>
 
 </head>
 <body>

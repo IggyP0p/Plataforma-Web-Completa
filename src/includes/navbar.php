@@ -1,13 +1,8 @@
 <?php  
-  session_start();
 
   if (isset($_SESSION['nome'])) {
+
 ?>
-<!-- Instanciando arquivos css e javascript -->
-<link rel="stylesheet" href="../css/navbar.css">
-<link rel="stylesheet" href="../frontend/css/navbar.css">
-<script src="../frontend/js/modal.js"></script>
-<script src="../js/modal.js"></script>
 
 <header class="principal-header">
     <!-- Logo imagem 90x72 -->

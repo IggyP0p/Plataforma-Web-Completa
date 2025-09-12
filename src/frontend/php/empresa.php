@@ -1,3 +1,9 @@
+<?php
+
+    session_start();
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +12,10 @@
 
     <link rel="stylesheet" href="../css/root.css">
     <link rel="stylesheet" href="../css/empresa.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <script src="../frontend/js/modal.js"></script>
+    <script src="../js/modal.js"></script>
     
 </head>
 <body>

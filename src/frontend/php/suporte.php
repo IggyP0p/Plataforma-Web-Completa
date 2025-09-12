@@ -1,10 +1,22 @@
+<?php
+
+    session_start();
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8" />
     <title>Suporte | Rito Gomes</title>
+    <!-- Instanciando arquivos css e javascript -->
     <link rel="stylesheet" href="../css/root.css">
     <link rel="stylesheet" href="../css/suporte.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <script src="../frontend/js/modal.js"></script>
+    <script src="../js/modal.js"></script>
+
 
 </head>
 <body>

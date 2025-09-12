@@ -1,3 +1,9 @@
+<?php
+
+    session_start();
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +12,7 @@
 
     <link rel="stylesheet" href="../css/root.css">
     <link rel="stylesheet" href="../css/cms.css">
-
+    <link rel="stylesheet" href="../css/footer.css">
     <script src="../js/cmsAddTopico.js"></script>
     <script src="../js/cmsProcessamento.js"></script>
     <script src="../js/cmsBotoes.js"></script>

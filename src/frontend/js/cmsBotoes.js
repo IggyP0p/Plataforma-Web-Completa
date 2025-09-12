@@ -30,8 +30,6 @@ async function excluirPost(obj){
 
         const id_post = deletar.id;
 
-        console.log(id_post);
-
         // Realiza a requisição POST
         // Cria um objeto FormData para empacotar o ID
         const formData = new FormData();
