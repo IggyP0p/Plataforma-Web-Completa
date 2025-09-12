@@ -34,63 +34,55 @@
         <h1>ULTIMAS NOTICIAS</h1>
 
         <div class="container-noticias">
-            <div class="noticia">
-                <div class="noticia-moldura">
-                    <img src="../../utils/img/tft_SET15.jpeg">
-                </div>
-                <div class="noticia-info">
-                    <span class="noticia-categoria">ATUALIZAÇÕES DO JOGO</span>
-                    <hr>
-                    <span class="noticia-data">13/08/2025</span>
-                </div>
-                <div class="noticia-descricao">
-                    <h2 class="noticia-titulo">
-                        Nova atualização, SET 15 do TFT.
-                    </h2>
-                    <p class="noticia-conteudo">
-                        Enfrentando a GenG de Chovy pela 89º vez, Faker faz um jogo implacável
-                        de Janna mid e leva para casa o trófeu.
-                    </p>
-                </div>
-            </div>
-            <div class="noticia">
-                <div class="noticia-moldura">
-                    <img src="../../utils/img/tft_Toddy.jpeg">
-                </div>
-                <div class="noticia-info">
-                    <span class="noticia-categoria">ESPORTS</span>
-                    <hr>
-                    <span class="noticia-data">10/08/2025</span>
-                </div>
-                <div class="noticia-descricao">
-                    <h2 class="noticia-titulo">
-                        Um novo ambiente, mas os mesmos competidores
-                    </h2>
-                    <p class="noticia-conteudo">
-                        Streamer tftoddy é convocado como manager coach do time profissional
-                        de tft da Kabum Esports.
-                    </p>
-                </div>
-            </div>
-            <div class="noticia">
-                <div class="noticia-moldura">
-                    <img src="../../utils/img/tft_rivenChibi.png">
-                </div>
-                <div class="noticia-info">
-                    <span class="noticia-categoria">ATUALIZAÇÕES DO JOGO</span>
-                    <hr>
-                    <span class="noticia-data">02/08/2025</span>
-                </div>
-                <div class="noticia-descricao">
-                    <h2 class="noticia-titulo">
-                        Nova adição ao Táticas.
-                    </h2>
-                    <p class="noticia-conteudo">
-                        Nessa primeira semana de Agosto, teremos a mais nova Riven Lightbringer
-                        Chibi, apenas para quem atirar no gacha.
-                    </p>
-                </div>
-            </div>
+            <?php
+            
+                include("../../backend/database/dbFunctions.php");
+
+                $dados = listarPostsFiltrado(3, [2], null, null, null);
+
+                foreach ($dados as $post) {
+                    // CORTAR AS STRINGS
+                    $titulo = $post['titulo'];
+                    $subtitulo = $post['subtitulo'];
+                    $data = $post['data_criacao'];
+                    $tamanhoTitulo = 34;
+                    $tamanhoSubtitulo = 102;
+
+                    if(strlen($titulo) > $tamanhoTitulo){
+                        $titulo = substr($titulo, 0, $tamanhoTitulo - 3);
+                        $titulo = str_pad($titulo, $tamanhoTitulo, ".", STR_PAD_RIGHT);
+                    }
+
+                    if(strlen($subtitulo) > $tamanhoSubtitulo){
+                        $subtitulo = substr($subtitulo, 0, $tamanhoSubtitulo - 3);
+                        $subtitulo = str_pad($subtitulo, $tamanhoSubtitulo, ".", STR_PAD_RIGHT);
+                    }
+
+                    $data = substr($data, 0, 11);
+
+                    echo <<<html
+                            <div class="noticia" onclick="window.location.href = 'Post.php?id_post={$post['id_post']}';">
+                                <div class="noticia-moldura">
+                                    <img src="{$post['imagem']}">
+                                </div>
+                                <div class="noticia-info">
+                                    <span class="noticia-categoria">{$post['nome_categoria']}</span>
+                                    <hr>
+                                    <span class="noticia-data">{$data}</span>
+                                </div>
+                                <div class="noticia-descricao">
+                                    <h2 class="noticia-titulo">
+                                        {$titulo}
+                                    </h2>
+                                    <p class="noticia-conteudo">
+                                        {$subtitulo}
+                                    </p>
+                                </div>
+                            </div>
+                        html
+                    ;
+                }
+            ?>
         </div>
     </div>
 

@@ -1,0 +1,171 @@
+body {
+    grid-template-rows: 75px 500px auto 160px;
+}
+
+main {
+    grid-column: 1/5;
+    grid-row: 3;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    color: rgba(25, 29, 38, 1);
+    background-color: rgb(224, 221, 210, 255);
+}
+
+.fundo-blur {
+    grid-column: 1/5;
+    grid-row: 2;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100vw;
+    filter: blur(5px);
+}
+
+.imagem-moldura{
+    width: 75%;
+    height: auto;
+
+    position: absolute;
+    top: 100px;
+
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+.imagem-moldura img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+main h1 {
+    font-size: 58pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    font-family: 'Wilhem';
+
+    margin-top: 50px;
+}
+
+main .subtitulo {
+    font-size: 16pt;
+    text-align: center;
+    font-family: 'Wilhem';
+}
+
+main hr {
+    width: 80%; height: 0;
+    border: none;
+    border: 2px solid rgba(200, 170, 110, 1);
+    border-radius: 5px;
+}
+
+main span {
+    font-weight: bold;
+    font-size: 10pt;
+    font-family: 'Spiegel-bold';
+    font-weight: bold;
+}
+
+main .conteudo,
+.comentarios {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    width: 70%; height: auto;
+    margin: 50px 140px 50px 140px;
+}
+
+main .conteudo h2,
+.comentarios h2 {
+    display: block;
+    text-align: left;
+    font-size: 20pt;
+    letter-spacing: 0.5px;
+    font-family: 'Wilhem';
+}
+
+main .conteudo p {
+    display: block;
+    text-align: justify;
+    font-size: 12pt;
+    font-family: 'Spiegel-regular';
+}
+
+main .conteudo .moldura {
+    width: 100%; height: auto;
+    overflow: hidden;
+}
+
+main .conteudo img {
+    width: 100%; height: auto;
+
+}
+
+.comentarios {
+    align-items: center;
+    justify-content: center;
+
+    
+}
+
+.comentarios h2 {
+    align-self: flex-start;
+    font-size: 28pt;
+}
+
+.container-comentario {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    width: 80%; height: auto;
+    
+}
+
+.container-comentario textarea {
+    width: 100%; height: 100%;
+    padding: 5px;
+    min-height: 90px;
+}
+
+.container-comentario button {
+    font-family: 'Spiegel-regular';
+    font-weight: bold;
+    font-size: 11pt;
+    padding: 8px;
+    margin: 5px;
+
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(170, 170, 170, 1);
+    color: rgba(25, 29, 38, 1);
+    align-self: flex-end;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.container-comentario button:hover {
+    color: rgba(0, 0, 0, 1);
+}
+
+.container-comentario input {
+    display: none;
+}
+
+.filho {
+    align-self: flex-end;
+    gap: 10px;
+}
+
+footer {
+    grid-column: 1/5;
+    grid-row: 4;
+}

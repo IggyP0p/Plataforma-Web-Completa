@@ -5,11 +5,13 @@
 ?>
 <!-- Instanciando arquivos css e javascript -->
 <link rel="stylesheet" href="../css/navbar.css">
+<link rel="stylesheet" href="../frontend/css/navbar.css">
+<script src="../frontend/js/modal.js"></script>
 <script src="../js/modal.js"></script>
 
 <header class="principal-header">
     <!-- Logo imagem 90x72 -->
-    <a href="home.php">
+    <a class="logo-b" href="home.php">
         <img class="logo" src="../../utils/img/logo.png">
     </a>
     
@@ -55,7 +57,7 @@
     </nav>
 
     <?php
-        if (isset($_SESSION['admin'])) {
+        if ($_SESSION['admin'] == 1) {
     ?>
 
     <a 
@@ -75,7 +77,7 @@
                     <a href="#">Configurações</a>
                 </li>
                 <li>
-                    <a href="#">Criar post</a>
+                    <a href="cms.php">Criar post</a>
                 </li>
                 <li>
                     <a href="../../backend/logout.php">Sair</a>

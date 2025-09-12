@@ -10,7 +10,7 @@
 <body>
 
     <?php
-        include("../../includes/navbar.php")
+        include("../../includes/navbar.php");
     ?>
 
     <section class="apresentacao">
@@ -28,67 +28,73 @@
 
             <a href="#">Saiba mais!</a>
         </header>
-        
-        <article class="article-principal">
-            <div class="img-container">
-                <img src="../../utils/img/oldFaker.png">
-            </div>
-            
 
-            <div class="texto-noticias">
-                <p class="texto-principal">
-                    Após vencer seu 100º Mundial, Faker escolhe skin da Janna.
-                </p>
-                <a></a>
-            </div>
-        </article>
-        
-        <article class="primeira-article sub-article">
-            <div class="texto-noticias">
-                <p class="sub-texto">
-                    Em homenagem a Streamer BR, a rito gomes lança skin...
-                </p>
-                <a></a>
-            </div>
+        <?php
 
-            <img src="../../utils/img/Ferias_com_Axt.jpeg">
-        </article>
+            include("../../backend/database/dbFunctions.php");
 
-        <article class="segunda-article sub-article">
-            <div class="texto-noticias">
-                <p class="sub-texto">
-                    Novo card game da rito gomes é o jogo do momento!
-                </p>
-                <a></a>
-            </div>
+            $dados = listarPosts(5);
 
-            <img src="../../utils/img/legendsOFruneterra.jpg">
-        </article>
+            echo <<<html
+                        <article class="article-principal" onclick="window.location.href = 'Post.php?id_post={$dados["0"]["id_post"]}';">
+                            <div class="img-container">
+                                <img src='{$dados["0"]["imagem"]}'>
+                            </div>
+                            
 
-        
-        <article class="terceira-article sub-article">
-            <div class="texto-noticias">
-                <p class="sub-texto">
-                    LLL Kyuzans é contratato pela Dor Jogos...
-                </p>
-                <a></a>
-            </div>
+                            <div class="texto-noticias">
+                                <p class="texto-principal">
+                                    {$dados["0"]["titulo"]}
+                                </p>
+                                <a></a>
+                            </div>
+                        </article>
+                        <article class="primeira-article sub-article" onclick="window.location.href = 'Post.php?id_post={$dados["1"]["id_post"]}'">
+                            <div class="texto-noticias">
+                                <p class="sub-texto">
+                                    {$dados["1"]["titulo"]}
+                                </p>
+                                <a></a>
+                            </div>
 
-            <img src="../../utils/img/LLL Kyuzans.webp">
-        </article>
+                            <img src="{$dados["1"]["imagem"]}">
+                        </article>
+                        <article class="segunda-article sub-article" onclick="window.location.href = 'Post.php?id_post={$dados["2"]["id_post"]}'">
+                            <div class="texto-noticias">
+                                <p class="sub-texto">
+                                    {$dados["2"]["titulo"]}
+                                </p>
+                                <a></a>
+                            </div>
 
-        <article class="quarta-article sub-article">
-            <div class="texto-noticias">
-                <p class="sub-texto">
-                    LLL Kyuzans é contratato pela Dor Jogos para jogar o Valoroso Champions!
-                </p>
-                <a></a>
-            </div>
+                            <img src="{$dados["2"]["imagem"]}">
+                        </article>
+                        <article class="terceira-article sub-article" onclick="window.location.href = 'Post.php?id_post={$dados["3"]["id_post"]}'">
+                            <div class="texto-noticias">
+                                <p class="sub-texto">
+                                    {$dados["3"]["titulo"]}
+                                </p>
+                                <a></a>
+                            </div>
 
-            <img src="../../utils/img/LLL Kyuzans.webp">
-        </article>
+                            <img src="{$dados["3"]["imagem"]}">
+                        </article>
+                        <article class="quarta-article sub-article" onclick="window.location.href = 'Post.php?id_post={$dados["4"]["id_post"]}'">
+                            <div class="texto-noticias">
+                                <p class="sub-texto">
+                                    {$dados["4"]["titulo"]}
+                                </p>
+                                <a></a>
+                            </div>
+
+                            <img src="{$dados["4"]["imagem"]}">
+                        </article>
+                    html
+            ;
 
 
+        ?>
+    
     </section>
 
     <section class="nossos-jogos">

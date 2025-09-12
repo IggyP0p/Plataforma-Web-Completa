@@ -126,6 +126,7 @@ body {
         background-color: rgba(60, 60, 60, 0.4); /* COR PRETO SUAVE */
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
         cursor: pointer;
         transition: transform 0.3s ease;
     }

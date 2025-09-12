@@ -1,89 +1,49 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8" />
-    <title>Cadastro | Rito Gomes</title>
+<?php
 
-    <!-- folhas de estilo -->
-    <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/cadastro.css" >
-</head>
-<body>
+    session_start();
 
-    <!-- Barra de navegação do site -->
-    <nav>
-        <!-- Logo imagem 90x72 -->
-        <a class="link-logo" href="../index.html">
-            <img class="nav-logo" src="/img/logo.png">
-        </a>
+    require("database/conexao.php");
+
+    // Checagem se não há nada de errado com as variaveis
+    if (isset($_POST['usuario']) && isset($_POST['senha1']) && isset($_POST['email'])) {
+        $usuario = $_POST['usuario'];
+        $senha = $_POST['senha1'];
+        $email = $_POST['email'];
+
+        //Conferir se o usuário ja existe
+        $query = $conn->prepare("SELECT nome, email FROM usuario
+                                WHERE (nome = ? OR email = ?)
+                                union SELECT usuario, senha from funcionario
+                                WHERE (usuario = ? OR senha = ?)"
+                                );
+        $query->execute([$usuario, $email, $usuario, $email]);
+        $resultado = $query->fetch(PDO::FETCH_ASSOC);
+
+        if(!$resultado){
+            //Usuario ainda não existe, criando novo usuario
+            $query = $conn->prepare("INSERT INTO usuario(nome, senha, email, data_criacao, telefone)
+                                    VALUES (?, ?, ?, CURRENT_TIMESTAMP, '');"
+                                    );
+            $query->execute([$usuario, $senha, $email]);
+
+            file_put_contents("logs.txt", 'USUARIO CADASTRADO COM SUCESSO' . "\n", FILE_APPEND);
+            echo '<script>alert("SISTEMA: USUARIO CADASTRADO COM SUCESSO");</script>';
+
+            header("Location: " . $_SERVER['HTTP_REFERER']);
+            exit();
+
+        } else {
+
+            file_put_contents("logs.txt", 'ERRO: USUARIO JA EXISTENTE' . "\n", FILE_APPEND);
+            header("Location: " . $_SERVER['HTTP_REFERER']);
+            exit();
+
+        }
+    } else {
         
-        <!-- barra de navegação -->
-        <ul>
-            <li>
-                <a href="/jogos.html" class="nav-item">JOGOS</a>
-            </li>
-            <li>
-                <a href="/personagens.html" class="nav-item">PERSONAGENS</a>
-            </li>
-            <li>
-                <a href="/noticias.html" class="nav-item">NOTICIAS</a>
-            </li>
-            <li>
-                <a href="/mais.html" class="nav-item icon">MAIS</a>
-                <!-- sub-menu de mais informações -->
-                <div class="dropdown-content">
-                    <ul>
-                        <li>
-                            <a href="#" class="nav-item">Torneios</a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-item">Comunidade</a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-item">Suporte</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-
-        <a href="#" class="btn-login">JOGUE AGORA</a>
-    </nav>
-
-    <!-- formulario para cadastro -->
-    <form>
-        <h1>Cadastre-se</h1>
-
-        <div class="campo-forms">
-            <label>Usuario:</label>
-            <input class="inserir" type="text">
-        </div>
-
-        <div class="campo-forms">
-            <label>Senha:</label>
-            <input class="inserir" type="password">
-        </div>
-
-        <div class="campo-forms">
-            <label>Repita sua senha:</label>
-            <input class="inserir" type="password">
-        </div>
-
-        <div class="campo-forms">
-            <label>E-mail:</label>
-            <input class="inserir" type="text">
-        </div>
-
-        <div class="campo-forms">
-            <input class="termos" type="checkbox" name="termos"> Sim, eu aceito e concordo com os <a href="#">Termos de Uso</a>
-        </div>
-
-        <div class="campo-forms">
-            <span>OBS: Não coloque informações reais, esse site é fake</span>
-        </div>
-
-        <a href="#" class="btn-forms">ENVIAR</a>
-    </form>
-
-</body>
-</html>
+        file_put_contents("logs.txt", 'ERRO: ALGUMA VARIÁVEL NÃO FOI ENVIADA PARA O LOGIN' . "\n", FILE_APPEND);
+        header("Location: " . $_SERVER['HTTP_REFERER']);
+        exit();
+        
+    }
+?>

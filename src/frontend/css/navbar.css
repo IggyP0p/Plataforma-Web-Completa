@@ -158,8 +158,9 @@ nav ul li:hover .dropdown-content {
 .menu-content ul {
     display: flex;
     flex-direction: column;
+    margin-top: -20px;
+    margin-bottom: -20px;
     gap: 2px;
-    
 }
 
 .menu-content ul li {

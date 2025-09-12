@@ -31,61 +31,55 @@
         <h1>ULTIMAS NOTICIAS</h1>
 
         <div class="container-noticias">
-            <div class="noticia">
-                <div class="noticia-moldura">
-                    <img src="../../utils/img/Champions_Paris.jpg">
-                </div>
-                <div class="noticia-info">
-                    <span class="noticia-categoria">ESPORTS</span>
-                    <hr>
-                    <span class="noticia-data">04/09/2025</span>
-                </div>
-                <div class="noticia-descricao">
-                    <h2 class="noticia-titulo">
-                        Tudo o que você precisa saber sobre o Champions Paris
-                    </h2>
-                    <p class="noticia-conteudo">
-                        Partidas, formato, datas e muito mais!
-                    </p>
-                </div>
-            </div>
-            <div class="noticia">
-                <div class="noticia-moldura">
-                    <img src="../../utils/img/vava_Patch_notes.jpg">
-                </div>
-                <div class="noticia-info">
-                    <span class="noticia-categoria">ATUALIZAÇÕES DO JOGO</span>
-                    <hr>
-                    <span class="noticia-data">01/09/2025</span>
-                </div>
-                <div class="noticia-descricao">
-                    <h2 class="noticia-titulo">
-                        Atualização 11.04 do VALOROSO
-                    </h2>
-                    <p class="noticia-conteudo">
-                        Novo mapa, Agentes e armas. Venha descobrir tudo sobre a nova atualização
-                    </p>
-                </div>
-            </div>
-            <div class="noticia">
-                <div class="noticia-moldura">
-                    <img src="../../utils/img/LLL Kyuzans.webp">
-                </div>
-                <div class="noticia-info">
-                    <span class="noticia-categoria">ESPORTS</span>
-                    <hr>
-                    <span class="noticia-data">23/08/2025</span>
-                </div>
-                <div class="noticia-descricao">
-                    <h2 class="noticia-titulo">
-                        LLL Kyuzans é contratato pela Dor Jogos.
-                    </h2>
-                    <p class="noticia-conteudo">
-                        Mesmo errado 20 tiros e desenhando mais os inimigos na parede do que
-                        realmente os atingindo, o pro Gustavo Kyuzans Minerva é contratado.
-                    </p>
-                </div>
-            </div>
+            <?php
+            
+                include("../../backend/database/dbFunctions.php");
+
+                $dados = listarPostsFiltrado(3, [3], null, null, null);
+
+                foreach ($dados as $post) {
+                    // CORTAR AS STRINGS
+                    $titulo = $post['titulo'];
+                    $subtitulo = $post['subtitulo'];
+                    $data = $post['data_criacao'];
+                    $tamanhoTitulo = 38;
+                    $tamanhoSubtitulo = 93;
+
+                    if(strlen($titulo) > $tamanhoTitulo){
+                        $titulo = substr($titulo, 0, $tamanhoTitulo - 3);
+                        $titulo = str_pad($titulo, $tamanhoTitulo, ".", STR_PAD_RIGHT);
+                    }
+
+                    if(strlen($subtitulo) > $tamanhoSubtitulo){
+                        $subtitulo = substr($subtitulo, 0, $tamanhoSubtitulo - 3);
+                        $subtitulo = str_pad($subtitulo, $tamanhoSubtitulo, ".", STR_PAD_RIGHT);
+                    }
+
+                    $data = substr($data, 0, 11);
+
+                    echo <<<html
+                            <div class="noticia" onclick="window.location.href = 'Post.php?id_post={$post['id_post']}';">
+                                <div class="noticia-moldura">
+                                    <img src="{$post['imagem']}">
+                                </div>
+                                <div class="noticia-info">
+                                    <span class="noticia-categoria">{$post['nome_categoria']}</span>
+                                    <hr>
+                                    <span class="noticia-data">{$data}</span>
+                                </div>
+                                <div class="noticia-descricao">
+                                    <h2 class="noticia-titulo">
+                                        {$titulo}
+                                    </h2>
+                                    <p class="noticia-conteudo">
+                                        {$subtitulo}
+                                    </p>
+                                </div>
+                            </div>
+                        html
+                    ;
+                }
+            ?>
         </div>
     </div>
 

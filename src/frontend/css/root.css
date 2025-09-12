@@ -28,19 +28,25 @@
 @font-face {
     font-family: 'Teste';
     font-style: normal;
-    src: url('../fontes/Fonts_Riot/BeaufortForLoL-TTF/BeaufortforLOL-Light.ttf') format('truetype');
+    src: url('../../fontes/Fonts_Riot/BeaufortForLoL-TTF/BeaufortforLOL-Light.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'Teste1';
+    font-family: 'Spiegel-bold';
     font-style: normal;
-    src: url('../fontes/Fonts_Riot/Spiegel-TTF/Spiegel_TT_Bold.ttf') format('truetype');
+    src: url('../../utils/fontes/Fonts_Riot/Spiegel-TTF/Spiegel_TT_bold.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'Teste2';
+    font-family: 'Spiegel-regular';
     font-style: normal;
-    src: url('../fontes/Fonts_Riot/BeaufortForLoL-TTF/BeaufortforLOL-Heavy.ttf') format('truetype');
+    src: url('../../utils/fontes/Fonts_Riot/Spiegel-TTF/Spiegel_TT_Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Wilhem';
+    font-style: normal;
+    src: url('../../utils/fontes/Educated-Deers-Regular/big_noodle_titling.ttf') format('truetype');
 }
 
 body {

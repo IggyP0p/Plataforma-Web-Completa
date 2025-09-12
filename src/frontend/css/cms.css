@@ -1,0 +1,252 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; height: 100vh;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    
+    width: 100%; height: 100%;
+    padding: 10px;
+    background-color: rgba(34, 34, 34, 1);
+}
+
+.menu-botoes {
+    width: auto; height: 50px;
+    margin-left: 140px;
+    align-self: flex-start;
+    
+
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+}
+
+.menu-botoes button {
+    width: 100%; height: 100%;
+    padding: 10px;
+    font-size: 10pt;
+
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    transition: all 0.3s ease;
+    background-color: rgba(170, 170, 170, 1);
+    cursor: pointer;
+}
+
+.menu-botoes button:hover {
+    background-color: rgba(140, 140, 140, 1);
+}
+
+.painel {
+    width: 80%; height: 90%;
+    background-color: rgba(170, 170, 170, 1);
+    
+}
+
+.tela-criar, 
+.tela-listar {
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: scroll;
+    padding: 25px;
+    border-radius: 5px;
+}
+
+.cabecalho{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1, .tela-listar h2 {
+    font-size: 16pt;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    padding: 15px;
+}
+
+.info-obrigatoria,
+.info-opcional {
+    border: 0.5px solid RGBA(50, 50, 50, 0.5);
+    border-radius: 2px;
+}
+
+section h2 {
+    font-size: 14pt;
+}
+
+section hr {
+    border-top: 1.5px solid RGBA(50, 50, 50, 0.5);
+}
+
+section label {
+    font-size: 12pt;
+}
+
+section input {
+    font-size: 12pt;
+    padding: 5px;
+}
+
+section textarea {
+    padding: 5px;
+    font-size: 12pt;
+
+    width: auto; height: 80px;
+}
+
+section p {
+    font-size: 10pt;
+    color: black;
+    margin-bottom: 10px;
+    margin-left: 6px;
+}
+
+.btn-add {
+    width: auto; height: auto;
+    border: 1px solid black;
+    align-self: center;
+    border-radius: 10px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.btn-submit {
+    padding: 5px;
+    width: 90px;
+    font-size: 10pt;
+    background-color: orange;
+    font-weight: bold;
+    border: 1px solid black;
+    align-self: flex-end;
+    cursor: pointer;
+    border-radius: 4px;
+    float: right;
+}
+
+.btn-add::after {
+    font-family: 'Icons';
+    content: "\f055";
+    margin-left: 5px;
+}
+
+span {
+    font-size: 16pt;
+    cursor: pointer;
+    font-weight: bold;
+    color: red;
+}
+
+.btns-add {
+    justify-content: center;
+    flex-direction: row;
+    border: none;
+}
+
+.jogo-evento {
+    display: flex;
+    flex-direction: row;
+}
+
+.jogo, .evento {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    width: 20%;
+    margin: 5px;
+}
+
+.jogo .container,
+.evento .container {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+
+    margin-left: 15px;
+}
+
+.tela-listar h2 {
+    display: block;
+    align-self: flex-start;
+}
+
+.container-post {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+
+    float: right;
+    width: 90%; height: auto;
+    margin: 10px 10px 0px 10px;
+    padding: 10px;
+    border-top: 1.5px solid black;
+    border-bottom: 1.5px solid black;
+}
+
+.container-post h3 {
+    font-size: 13pt;
+}
+
+.container-post p {
+    font-size: 12pt;
+}
+
+.container-post img {
+    width: 30%; height: auto;
+
+    border-radius: 10px;
+    float: left;
+}
+
+.container-post .container-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    width: 40%; height: auto;
+}
+
+.container-post .container-texto .texto {
+    display: flex;
+    flex-direction: row;
+}
+
+.alterar, .excluir {
+    margin-left: 30px;
+    padding: 10px;
+    font-size: 14pt;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.alterar::after {
+    font-family: 'Icons';
+    content: '\f303';
+}
+
+.excluir::after {
+    font-family: 'Icons';
+    content: '\f2ed';
+}
+
+.id_post {
+    display: none;
+}

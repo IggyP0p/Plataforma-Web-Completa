@@ -1,31 +1,37 @@
 <?php
   session_start();
-  
-  // Defina aqui suas credenciais válidas
-  $usuario_valido = "admin";
-  $senha_valida = "2345a";
-  
+
+  require("database/conexao.php");
+
   if (isset($_POST['usuario']) && isset($_POST['senha'])) {
-    if ($_POST['usuario'] == $usuario_valido && $_POST['senha'] == $senha_valida) {
-      
-      $_SESSION['nome'] = "igor";
-      $_SESSION['admin'] = 'true';
+    $usuario = $_POST['usuario'];
+    $senha = $_POST['senha'];
+
+    $query = $conn->prepare("SELECT id_usuario, nome, senha, isAdmin FROM usuario
+                              WHERE (nome = ? AND senha = ?)
+                              union SELECT id_funcionario, usuario, senha, isAdmin FROM funcionario
+                              WHERE (usuario = ? AND senha = ?);"
+                              );
+    $query->execute([$usuario, $senha, $usuario, $senha]);
+    $resultado = $query->fetch(PDO::FETCH_ASSOC);
+
+    if($resultado){
+      // O Usuario ainda não existe no banco de dados
+      $_SESSION['nome'] = $resultado['nome'];
+      $_SESSION['id'] = $resultado['id_usuario'];
+      $_SESSION['admin'] = $resultado['isadmin'];
+
+      echo '<script>alert("SISTEMA: USUARIO CADASTRADO COM SUCESSO");</script>';
+
       header("Location: " . $_SERVER['HTTP_REFERER']);
       exit();
-      
-    } else if ($_POST['usuario'] == "usuario" && $_POST['senha'] == $senha_valida) {
-      
-      $_SESSION['nome'] = "igor";
-      header("Location: " . $_SERVER['HTTP_REFERER']);
-      exit();
-      
+
     } else {
-      
+      //Senha e Usuario incorretos
       header("Location: " . $_SERVER['HTTP_REFERER']);
       exit();
-      
+
     }
-    
   } else {
     
     header("Location: " . $_SERVER['HTTP_REFERER']);

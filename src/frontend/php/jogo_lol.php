@@ -28,67 +28,60 @@
         </div>
     </div>
 
+    
     <div class="ultimas-noticias">
         <h1>ULTIMAS NOTICIAS</h1>
 
         <div class="container-noticias">
-            <div class="noticia">
-                <div class="noticia-moldura">
-                    <img src="../../utils/img/oldFaker.png">
-                </div>
-                <div class="noticia-info">
-                    <span class="noticia-categoria">ESPORTS</span>
-                    <hr>
-                    <span class="noticia-data">03/09/2025</span>
-                </div>
-                <div class="noticia-descricao">
-                    <h2 class="noticia-titulo">
-                        Após vencer seu 100º Mundial, Faker escolhe skin da Janna.
-                    </h2>
-                    <p class="noticia-conteudo">
-                        Enfrentando a GenG de Chovy pela 89º vez, Faker faz um jogo implacável
-                        de Janna mid e leva para casa o trófeu.
-                    </p>
-                </div>
-            </div>
-            <div class="noticia">
-                <div class="noticia-moldura">
-                    <img src="../../utils/img/Ferias_com_Axt.jpeg">
-                </div>
-                <div class="noticia-info">
-                    <span class="noticia-categoria">ATUALIZAÇÕES DO JOGO</span>
-                    <hr>
-                    <span class="noticia-data">01/09/2025</span>
-                </div>
-                <div class="noticia-descricao">
-                    <h2 class="noticia-titulo">
-                        Em homenagem a Streamer BR, a rito gomes lança skin.
-                    </h2>
-                    <p class="noticia-conteudo">
-                        Após pedido de diversos fãs do famoso streamer Axt, conhecido pelo seu amor
-                        por praias. A Rito Gomes decide criar uma skin homenageando o streamer.
-                    </p>
-                </div>
-            </div>
-            <div class="noticia">
-                <div class="noticia-moldura">
-                    <img src="../../utils/img/LLL Kyuzans.webp">
-                </div>
-                <div class="noticia-info">
-                    <span class="noticia-categoria">ESPORTS</span>
-                    <hr>
-                    <span class="noticia-data">23/08/2025</span>
-                </div>
-                <div class="noticia-descricao">
-                    <h2 class="noticia-titulo">
-                        LLL Kyuzans é contratato pela Dor Jogos.
-                    </h2>
-                    <p class="noticia-conteudo">
-                        Mesmo errado 20 tiros e desenhando mais os inimigos na parede do que
-                        realmente os atingindo, o pro Gustavo Kyuzans Minerva é contratado.
-                    </p>
-                </div>
-            </div>
+            <?php
+            
+                include("../../backend/database/dbFunctions.php");
+
+                $dados = listarPostsFiltrado(3, [1], null, null, null);
+
+                foreach ($dados as $post) {
+                    // CORTAR AS STRINGS
+                    $titulo = $post['titulo'];
+                    $subtitulo = $post['subtitulo'];
+                    $data = $post['data_criacao'];
+                    $tamanhoTitulo = 34;
+                    $tamanhoSubtitulo = 102;
+
+                    if(strlen($titulo) > $tamanhoTitulo){
+                        $titulo = substr($titulo, 0, $tamanhoTitulo - 3);
+                        $titulo = str_pad($titulo, $tamanhoTitulo, ".", STR_PAD_RIGHT);
+                    }
+
+                    if(strlen($subtitulo) > $tamanhoSubtitulo){
+                        $subtitulo = substr($subtitulo, 0, $tamanhoSubtitulo - 3);
+                        $subtitulo = str_pad($subtitulo, $tamanhoSubtitulo, ".", STR_PAD_RIGHT);
+                    }
+
+                    $data = substr($data, 0, 11);
+
+                    echo <<<html
+                            <div class="noticia" onclick="window.location.href = 'Post.php?id_post={$post['id_post']}';">
+                                <div class="noticia-moldura">
+                                    <img src="{$post['imagem']}">
+                                </div>
+                                <div class="noticia-info">
+                                    <span class="noticia-categoria">{$post['nome_categoria']}</span>
+                                    <hr>
+                                    <span class="noticia-data">{$data}</span>
+                                </div>
+                                <div class="noticia-descricao">
+                                    <h2 class="noticia-titulo">
+                                        {$titulo}
+                                    </h2>
+                                    <p class="noticia-conteudo">
+                                        {$subtitulo}
+                                    </p>
+                                </div>
+                            </div>
+                        html
+                    ;
+                }
+            ?>
         </div>
     </div>
 

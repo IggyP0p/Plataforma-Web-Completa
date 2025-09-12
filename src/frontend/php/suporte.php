@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>Home | Rito Gomes</title>
+    <title>Suporte | Rito Gomes</title>
     <link rel="stylesheet" href="../css/root.css">
     <link rel="stylesheet" href="../css/suporte.css">
 
