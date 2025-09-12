@@ -25,12 +25,11 @@
             $query->bindParam(':id_evento', $id_evento);
             
             $query ->execute();
-            //file_put_contents("logs.txt", "Post criado com sucesso!" . "\n", FILE_APPEND);
-            // Post criado com sucesso!
+
 
         }   catch (PDOException $e) {
             // Se ocorrer um erro, exibe a mensagem de erro
-            //file_put_contents("logs.txt", "Erro na consulta: " . $e->getMessage() . "\n", FILE_APPEND);
+            file_put_contents("logs.txt", "Erro na consulta: " . $e->getMessage() . "\n", FILE_APPEND);
 
         }
         
@@ -43,16 +42,17 @@
 
         try {
 
-            $query = $conn->prepare("CALL delete_post($identifier);");
+            $query = $conn->prepare("CALL delete_post(:identificador);");
+
+            $query->bindParam(':identificador', $identifier, PDO::PARAM_INT);
 
             $query ->execute();
             
             // Excluido com sucesso
-            //file_put_contents("../../backend/logs.txt", "Post excluido com sucesso!" . "\n", FILE_APPEND);
 
         } catch (PDOException $e) {
             // Se ocorrer um erro, exibe a mensagem de erro
-            //file_put_contents("../../backend/logs.txt", "Erro na consulta: " . $e->getMessage() . "\n", FILE_APPEND);
+            file_put_contents("../../backend/logs.txt", "Erro na consulta: " . $e->getMessage() . "\n", FILE_APPEND);
 
         }
     }
@@ -74,13 +74,11 @@
 
             $dados_do_post = json_decode($resultado['post_completo'], true);
 
-            //file_put_contents("logs.txt", "ARQUIVO JSON RESGATADO COM SUCESSO!" . "\n", FILE_APPEND);
-
             return $dados_do_post;
 
         } catch (PDOException $e) {
             // Se ocorrer um erro, exibe a mensagem de erro
-            //file_put_contents("logs.txt", "Erro na consulta: " . $e->getMessage() . "\n", FILE_APPEND);
+            file_put_contents("logs.txt", "Erro na consulta: " . $e->getMessage() . "\n", FILE_APPEND);
 
         }
 
@@ -112,14 +110,14 @@
             $query->bindParam(':id_evento', $id_evento);
 
             $query ->execute();
-            //file_put_contents("logs.txt", "Post atualizado com sucesso!" . "\n", FILE_APPEND);
-            // Post atualizado com sucesso!
 
         } catch (PDOException $e) {
             // Se ocorrer um erro, exibe a mensagem de erro
-            //file_put_contents("logs.txt", "Erro na consulta: " . $e->getMessage() . "\n", FILE_APPEND);
+            file_put_contents("logs.txt", "Erro na consulta: " . $e->getMessage() . "\n", FILE_APPEND);
 
         }
+
+
     }
 
     function resgataCategoria($id_categoria){
@@ -140,7 +138,7 @@
 
         } catch (PDOException $e) {
             // Se ocorrer um erro, exibe a mensagem de erro
-            //file_put_contents("logs.txt", "Erro na consulta: " . $e->getMessage() . "\n", FILE_APPEND);
+            file_put_contents("logs.txt", "Erro na consulta: " . $e->getMessage() . "\n", FILE_APPEND);
 
         }
     }
@@ -172,7 +170,7 @@
 
         } catch (PDOException $e) {
             // Se ocorrer um erro, exibe a mensagem de erro
-            //file_put_contents("logs.txt", "Erro na consulta: " . $e->getMessage() . "\n", FILE_APPEND);
+            file_put_contents("logs.txt", "Erro na consulta: " . $e->getMessage() . "\n", FILE_APPEND);
 
         }
     }

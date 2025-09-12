@@ -1,18 +1,32 @@
 <?php
+
     session_start();
 
     require('database/cmsCRUD.php');
 
     $id_post = $_POST["id_post"];
 
-    // Resgata os dados necessários para serem alterados.
-    $dados = resgataPost($id_post);
+    if(isset($_POST["acao"])){
+        $oqueFazer = $_POST["acao"];
 
-    // Recuperando a string das tags
-    $tags = implode(", ", $dados['tags']);
+        if($oqueFazer === 'excluir'){
 
-    // Recuperando a data
-    $data = substr($dados['post']['data_criacao'], 0, 10);
+            removePost($id_post);
+
+            header("Location: ../frontend/php/cms.php");
+            exit();
+
+        } else {
+
+            // Resgata os dados necessários para serem alterados.
+            $dados = resgataPost($id_post);
+
+            // Recuperando a string das tags
+            $tags = implode(", ", $dados['tags']);
+
+            // Recuperando a data
+            $data = substr($dados['post']['data_criacao'], 0, 10);
+
 
 ?>
 
@@ -46,6 +60,7 @@
                         class="btn-submit" 
                         type="button" 
                         onclick="ProcessarDados(<?=$id_post?>)"
+                        id="atualizar"
                     >
                         ATUALIZAR
                     </button>
@@ -55,16 +70,20 @@
                     <hr>
 
                     <label for="imagem-principal">Imagem principal:</label>
+                    <span class="warning">Escolha uma Imagem</span>
                     <input type="file" name="imagem-principal" id="imagem-principal">
                     <p>Prefira imagens com proporção de 0.5625. (ex: "1280x720")</p>
                     
                     <label for="titulo">Titulo:</label>
+                    <span class="warning">Escreva um titulo</span>
                     <input type="text" name="titulo" id="titulo" value="<?= $dados['post']['titulo']?>">
                     
                     <label for="subtitulo">Subtitulo:</label>
+                    <span class="warning">Escreva um subtitulo</span>
                     <input type="text" name="subtitulo" id="subtitulo" value="<?= $dados['post']['subtitulo']?>">
                     
                     <label for="categoria">Categoria:</label>
+                    <span class="warning">Escolha uma categoria</span>
                     <select name="categoria" id="categoria" onchange="tiraOpcao(this)">
                         <?php
                         if ($dados['post']['id_categoria'] == 1){
@@ -94,10 +113,12 @@
                     </select>
 
                     <label for="tags">Tags:</label>
+                    <span class="warning">Coloque pelo menos 1 tag</span>
                     <input type="text" id="tags" value="<?= $tags ?>">
                     <p>Separe as tags por virgulas. (ex: "Freljord, Lore, Ashe")</p>
                     
                     <label for="data">Data:</label>
+                    <span class="warning">Escolha uma data</span>
                     <input type="date" name="data" id="data" value="<?= $data ?>">
 
                     <div class="jogo-evento">
@@ -187,3 +208,12 @@
     
 </body>
 </html>
+
+<?php
+
+        }
+
+    }
+
+
+?>

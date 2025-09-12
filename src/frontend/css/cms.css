@@ -68,6 +68,7 @@ main {
 }
 
 h1, .tela-listar h2 {
+    font-family: 'Beaufort-bold';
     font-size: 16pt;
 }
 
@@ -94,6 +95,7 @@ section hr {
 }
 
 section label {
+    font-family: 'Beaufort-bold';
     font-size: 12pt;
 }
 
@@ -145,10 +147,15 @@ section p {
 }
 
 span {
-    font-size: 16pt;
-    cursor: pointer;
+    font-size: 10pt;
     font-weight: bold;
     color: red;
+    cursor: pointer;
+}
+
+.warning {
+    display: none;
+    cursor: none;
 }
 
 .btns-add {
@@ -180,7 +187,8 @@ span {
     margin-left: 15px;
 }
 
-.tela-listar h2 {
+h2 {
+    font-family: 'Beaufort-bold';
     display: block;
     align-self: flex-start;
 }
@@ -202,11 +210,12 @@ span {
 }
 
 .container-post h3 {
+    font-family: 'Beaufort-bold';
     font-size: 13pt;
 }
 
 .container-post p {
-    font-size: 12pt;
+    font-size: 11pt;
 }
 
 .container-post img {
@@ -221,7 +230,7 @@ span {
     flex-direction: column;
     gap: 5px;
 
-    width: 40%; height: auto;
+    width: 50%; height: auto;
 }
 
 .container-post .container-texto .texto {
@@ -249,4 +258,59 @@ span {
 
 .id_post {
     display: none;
+}
+
+/* Modal box para excluir post */
+.modal {
+    display: none; /* começa escondido */
+    position: fixed;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    top: 100px;
+    width: 25%; height: 20%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.modal-content p {
+    font-family: 'Wilhem';
+    font-size: 16pt;
+}
+
+.caixa-botoes {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+.caixa-botoes button {
+    background-color: orange;
+    font-weight: bold;
+    border: none; /* tirando a padrão */
+    border: 1px solid black;
+    
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.excluir-post:hover {
+    background-color: red;
+}
+
+.cancel:hover {
+    background-color: rgb(253, 189, 70);
 }

@@ -38,8 +38,8 @@
                                 <h3>Categoria: </h3><p>{$post['nome_categoria']}</p>
                             </div>
                         </div>
-                        <button class="alterar" type="submit"></button>
-                        <button class="excluir" type="button" onclick="excluirPost(this)"></button>
+                        <button class="alterar" type="submit" name="acao" value="alterar"></button>
+                        <button class="excluir" type="button" onclick="openModal({$post['id_post']})"></button>
                     </form>
                 html;
     }

@@ -75,19 +75,19 @@
 
                 $conteudo = $dados['post']['conteudo'];
 
-                foreach($conteudo as $topico){
+                foreach($conteudo as $chave => $valor){
 
-                    if(str_contains($topico, 'Titulo')){
+                    if(str_contains($chave, 'Titulo')){
                         echo <<<html
                             <h2>
-                                {$topico}
+                                {$valor}
                             </h2>
                         html;
                     }
 
-                    if(str_contains($topico, 'Texto')){
+                    if(str_contains($chave, 'Texto')){
                         echo <<<html
-                            <p>{$topico}</p>
+                            <p>{$valor}</p>
                         html;
                     }
                 }

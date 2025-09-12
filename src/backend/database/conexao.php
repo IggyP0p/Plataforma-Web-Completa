@@ -19,7 +19,7 @@ try {
 
 } catch (PDOException $e) {
     // Se ocorrer um erro na conexão, a exceção é capturada aqui
-    //file_put_contents("logs.txt", "Erro na conexão: " . $e->getMessage() . "\n", FILE_APPEND);
+    file_put_contents("logs.txt", "Erro na conexão: " . $e->getMessage() . "\n", FILE_APPEND);
 }
 
 ?>

@@ -26,7 +26,7 @@
                                     );
             $query->execute([$usuario, $senha, $email]);
 
-            //file_put_contents("logs.txt", 'USUARIO CADASTRADO COM SUCESSO' . "\n", FILE_APPEND);
+
             echo '<script>alert("SISTEMA: USUARIO CADASTRADO COM SUCESSO");</script>';
 
             header("Location: " . $_SERVER['HTTP_REFERER']);
@@ -34,14 +34,13 @@
 
         } else {
 
-            //file_put_contents("logs.txt", 'ERRO: USUARIO JA EXISTENTE' . "\n", FILE_APPEND);
+
             header("Location: " . $_SERVER['HTTP_REFERER']);
             exit();
 
         }
     } else {
         
-        //file_put_contents("logs.txt", 'ERRO: ALGUMA VARIÁVEL NÃO FOI ENVIADA PARA O LOGIN' . "\n", FILE_APPEND);
         header("Location: " . $_SERVER['HTTP_REFERER']);
         exit();
         

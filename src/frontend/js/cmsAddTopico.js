@@ -3,7 +3,7 @@ const lastSelectedOptions = new Map();
 let secaoTitulo =`
         <div class="cabecalho">
             <label>Titulo:</label>
-            <span onclick="cancelaTopico(this)">&times;</span>
+            <span class="cancel" onclick="cancelaTopico(this)">&times;</span>
         </div>
         <input type="text">
 `;
@@ -11,7 +11,7 @@ let secaoTitulo =`
 let secaoTexto =`
         <div class="cabecalho">
             <label>Conteúdo:</label>
-            <span onclick="cancelaTopico(this)">&times;</span>
+            <span class="cancel" onclick="cancelaTopico(this)">&times;</span>
         </div>
         <textarea></textarea>
 `;
@@ -19,7 +19,7 @@ let secaoTexto =`
 let secaoImagem =`
         <div class="cabecalho">
             <label>Adicionar Imagem:</label>
-            <span onclick="cancelaTopico(this)">&times;</span>
+            <span class="cancel" onclick="cancelaTopico(this)">&times;</span>
         </div>
         <input type="file">
         <p>Prefira imagens com proporção de 0.5625. (ex: "1280x720")</p>
@@ -28,7 +28,7 @@ let secaoImagem =`
 let secaoSubcategoria =`
         <div class="cabecalho">
             <label>Subcategoria:</label>
-            <span onclick="cancelaTopico(this)">&times;</span>
+            <span class="cancel" onclick="cancelaTopico(this)">&times;</span>
         </div>
         <select name="categoria" id="categoria" onchange="tiraOpcao(this)">
             <option value="">-- SELECIONE --</option>

@@ -16,6 +16,7 @@
     <script src="../js/cmsAddTopico.js"></script>
     <script src="../js/cmsProcessamento.js"></script>
     <script src="../js/cmsBotoes.js"></script>
+    <script src="../js/modal.js"></script>
     
 </head>
 <body>
@@ -40,6 +41,16 @@
                     include('../../backend/mostrarPost.php');
                 
                 ?>
+                <form class="modal" method="post" action="../../backend/mudarPost.php">
+                    <div class="modal-content">
+                        <p>Tem certeza que deseja excluir o post?</p>
+                        <div class="caixa-botoes">
+                            <input type="text" class="id_post" name="id_post" value="<?=$post['id_post']?>">
+                            <button class="excluir-post" type="submit" name="acao" value="excluir">Excluir</button>
+                            <button class="cancel" type="button" onclick="closeModal()">Cancelar</button>
+                        </div>
+                    </div>
+                </form>
             </div>
             <form class="tela-criar" id="tela-criar">
                 <div class="cabecalho">
@@ -57,16 +68,20 @@
                     <hr>
 
                     <label for="imagem-principal">Imagem principal:</label>
+                    <span class="warning">Escolha uma Imagem</span>
                     <input type="file" name="imagem-principal" id="imagem-principal">
                     <p>Prefira imagens com proporção de 0.5625. (ex: "1280x720")</p>
                     
                     <label for="titulo">Titulo:</label>
+                    <span class="warning">Escreva um titulo</span>
                     <input type="text" name="titulo" id="titulo" maxlength="50">
                     
                     <label for="subtitulo">Subtitulo:</label>
+                    <span class="warning">Escreva um subtitulo</span>
                     <input type="text" name="subtitulo" id="subtitulo" maxlength="128">
                     
                     <label for="categoria">Categoria:</label>
+                    <span class="warning">Escolha uma categoria</span>
                     <select name="categoria" id="categoria" onchange="tiraOpcao(this)">
                         <option value="">-- SELECIONE --</option>
                         <option value="1">ESPORTS</option>
@@ -85,10 +100,12 @@
                     -->
 
                     <label for="tags">Tags:</label>
+                    <span class="warning">Coloque pelo menos 1 tag</span>
                     <input type="text" id="tags">
                     <p>Separe as tags por virgulas. (ex: "Freljord, Lore, Ashe")</p>
                     
                     <label for="data">Data:</label>
+                    <span class="warning">Escolha uma data</span>
                     <input type="date" name="data" id="data">
 
                     <div class="jogo-evento">

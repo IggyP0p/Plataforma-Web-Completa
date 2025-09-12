@@ -9,44 +9,44 @@
 }
 
 :root {
-    font-family: 'Teste', 'roboto', 'sans-serif';
+    font-family: 'roboto', 'sans-serif';
 }
 
 /* fonte dos icones utilizados na navbar */
 @font-face {
     font-family: 'Icons';
     font-style: normal;
-    src: url('/src/utils/fontawesome/webfonts/fa-solid-900.woff2') format('woff2');
+    src: url('/src/utils/fontes/fa-solid-900.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Brands';
     font-style: normal;
-    src: url('/src/utils/fontawesome/webfonts/fa-brands-400.woff2') format('woff');
+    src: url('/src/utils/fontes/fa-brands-400.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'Teste';
+    font-family: 'Beaufort-bold';
     font-style: normal;
-    src: url('../../fontes/Fonts_Riot/BeaufortForLoL-TTF/BeaufortforLOL-Light.ttf') format('truetype');
+    src: url('../../utils/fontes\BeaufortforLOL-Bold.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Spiegel-bold';
     font-style: normal;
-    src: url('../../utils/fontes/Fonts_Riot/Spiegel-TTF/Spiegel_TT_bold.ttf') format('truetype');
+    src: url('../../utils/fontes/Spiegel_TT_Bold.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Spiegel-regular';
     font-style: normal;
-    src: url('../../utils/fontes/Fonts_Riot/Spiegel-TTF/Spiegel_TT_Regular.ttf') format('truetype');
+    src: url('../../utils/fontes/Spiegel_TT_Regular.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Wilhem';
     font-style: normal;
-    src: url('../../utils/fontes/Educated-Deers-Regular/big_noodle_titling.ttf') format('truetype');
+    src: url('../../utils/fontes/big_noodle_titling.ttf') format('truetype');
 }
 
 body {

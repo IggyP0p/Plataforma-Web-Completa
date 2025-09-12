@@ -21,8 +21,6 @@
       $_SESSION['id'] = $resultado['id_usuario'];
       $_SESSION['admin'] = $resultado['isadmin'];
 
-      echo '<script>alert("SISTEMA: USUARIO CADASTRADO COM SUCESSO");</script>';
-
       header("Location: " . $_SERVER['HTTP_REFERER']);
       exit();
 
