@@ -1,6 +1,6 @@
 <?php
 
-    function criaPost($conteudo, $data, $id_autor, $titulo, $subtitulo, $id_categoria, $id_jogo=null, $id_evento=null, $bytes, array $tagsSelecionadas){
+    function criaPost($conteudo, $data, $id_autor, $titulo, $subtitulo, $id_categoria, $bytes, array $tagsSelecionadas, $id_jogo=null, $id_evento=null){
 
         require("conexao.php");
 
@@ -84,7 +84,7 @@
 
     }
 
-    function atualizaPost($id_post, $conteudo, $data, $id_autor, $titulo, $subtitulo, $id_categoria, $id_jogo=null, $id_evento=null, $bytes, array $tagsSelecionadas){
+    function atualizaPost($id_post, $conteudo, $data, $id_autor, $titulo, $subtitulo, $id_categoria, $bytes, array $tagsSelecionadas, $id_jogo=null, $id_evento=null){
 
         require("conexao.php");
 

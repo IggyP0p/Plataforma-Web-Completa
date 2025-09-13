@@ -91,14 +91,14 @@
     if (isset($_POST['post'])){
         $id_post = $_POST['post'];
 
-        atualizaPost($id_post, $conteudo, $data, $id_autor, $titulo, $subtitulo, $id_categoria, $jogos_formatados, $eventos_formatados, $bytes, $tagsSelecionadas);
+        atualizaPost($id_post, $conteudo, $data, $id_autor, $titulo, $subtitulo, $id_categoria, $bytes, $tagsSelecionadas, $jogos_formatados, $eventos_formatados);
 
         header('Location: ../frontend/php/cms.php');
         exit();
 
     } else {
         // Salvando o id do post para posteriormente salvar a imagem no banco de dados.
-        criaPost($conteudo, $data, $id_autor, $titulo, $subtitulo, $id_categoria, $jogos_formatados, $eventos_formatados, $bytes, $tagsSelecionadas);
+        criaPost($conteudo, $data, $id_autor, $titulo, $subtitulo, $id_categoria, $bytes, $tagsSelecionadas, $jogos_formatados, $eventos_formatados);
 
         header('Location: src/frontend/php/cms.php');
         exit();
