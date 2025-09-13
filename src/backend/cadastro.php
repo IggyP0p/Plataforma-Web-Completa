@@ -27,8 +27,6 @@
             $query->execute([$usuario, $senha, $email]);
 
 
-            echo '<script>alert("SISTEMA: USUARIO CADASTRADO COM SUCESSO");</script>';
-
             header("Location: " . $_SERVER['HTTP_REFERER']);
             exit();
 
@@ -39,6 +37,7 @@
             exit();
 
         }
+
     } else {
         
         header("Location: " . $_SERVER['HTTP_REFERER']);
