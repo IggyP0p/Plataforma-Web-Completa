@@ -13,10 +13,9 @@
     <link rel="stylesheet" href="../css/root.css">
     <link rel="stylesheet" href="../css/cms.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <script src="../js/cmsAddTopico.js"></script>
-    <script src="../js/cmsProcessamento.js"></script>
-    <script src="../js/cmsBotoes.js"></script>
-    <script src="../js/modal.js"></script>
+    <script src="../js/cmsAddTopico.js" defer></script>
+    <script src="../js/cmsProcessamento.js" defer></script>
+    <script src="../js/cmsBotoes.js" defer></script>
     
 </head>
 <body>
@@ -41,16 +40,6 @@
                     include('../../backend/mostrarPost.php');
                 
                 ?>
-                <form class="modal" method="post" action="../../backend/mudarPost.php">
-                    <div class="modal-content">
-                        <p>Tem certeza que deseja excluir o post?</p>
-                        <div class="caixa-botoes">
-                            <input type="text" class="id_post" name="id_post" value="<?=$post['id_post']?>">
-                            <button class="excluir-post" type="submit" name="acao" value="excluir">Excluir</button>
-                            <button class="cancel" type="button" onclick="closeModal()">Cancelar</button>
-                        </div>
-                    </div>
-                </form>
             </div>
             <form class="tela-criar" id="tela-criar">
                 <div class="cabecalho">

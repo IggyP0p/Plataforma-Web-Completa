@@ -198,13 +198,14 @@ async function enviarDadosParaPHP(dados, dir, href){
             body: dados
         });
 
-        // Converte a resposta do servidor para JSON
+        
         alert('Post enviado com sucesso!');
         const resultado = await response;
         console.log(resultado);
 
     } catch (error) {
         console.error('Erro:', error);
+        
     }
 
     window.location.href = href;

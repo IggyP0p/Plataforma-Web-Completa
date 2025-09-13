@@ -18,15 +18,9 @@ window.onclick = (event) => {
 }   
 
 // Função para quando o usuario tem que se cadastrar
-function openModal(num){
+function openModal(){
     let modal = document.querySelector('.modal');
 
-    if(num){
-        let input = modal.getElementsByClassName("id_post");
-
-        input[0].value = num;
-
-    }
 
     modal.style.display = 'flex';
 }

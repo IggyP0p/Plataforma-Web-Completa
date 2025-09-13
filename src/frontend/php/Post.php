@@ -29,8 +29,8 @@
     <link rel="stylesheet" href="../css/post.css">
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <script src="../frontend/js/modal.js"></script>
-    <script src="../js/modal.js"></script>
+    <script src="../frontend/js/modal.js" defer></script>
+    <script src="../js/modal.js" defer></script>
 
     <style>
         
@@ -95,6 +95,62 @@
             
         </div>
 
+        <?php
+
+            // Faz a checagem se quem esta logado é um admin
+            if(isset($_SESSION['admin']) && $_SESSION['admin'] === TRUE){
+
+            
+        ?>
+
+        <div class="comentarios">
+            <h2>Deixe um comentário</h2>
+            <form class="container-comentario" method="post" action="../../backend/salvarComentario.php">
+                <textarea name="comentario"></textarea>
+                <input name="id_post" value="<?= $id_post ?>">
+            </form>
+            <?php
+            
+                $comentarios_pais = catarComentariosPais($id_post);
+
+                foreach($comentarios_pais as $comentarios){
+
+                    $comentarios_filhos = catarComentariosFilhos($id_post, $comentarios['id_comentario']);
+
+                    echo<<<html
+                        <form class="container-comentario" method="post" action="../../backend/salvarComentario.php">
+                        
+                            <span class="nome-usuario">{$comentarios['nome']}</span>
+                            <textarea readonly>{$comentarios['conteudo']}</textarea>
+                            <input name="id_comentario_pai" value="{$comentarios['id_comentario']}">
+                        html;
+                            foreach($comentarios_filhos as $subcomentarios){
+                                echo<<<html
+                                <div class="container-comentario filho">
+                                    <span class="nome-usuario">{$subcomentarios['nome']}</span>
+                                    <textarea readonly>{$subcomentarios['conteudo']}</textarea>
+                                </div>
+                                html;
+                            }
+                            echo<<<html
+                                <div class="container-comentario filho">
+                                    <textarea name="comentario"></textarea>
+                                    <input name="id_post" value="{$id_post}">
+                                </div>
+                        </form>
+                html;
+                }
+
+            ?>
+        </div>
+
+        <?php
+
+            // Checagem se quem esta logado é um usuario
+            } else if(isset($_SESSION['admin']) && $_SESSION['admin'] === FALSE){
+        
+        ?>
+
         <div class="comentarios">
             <h2>Deixe um comentário</h2>
             <form class="container-comentario" method="post" action="../../backend/salvarComentario.php">
@@ -137,6 +193,62 @@
 
             ?>
         </div>
+
+        <?php
+                
+            // Por ultimo o caso onde o usuario não esta logado
+            } else {
+            
+        ?>
+
+        <div class="comentarios">
+            <h2>Deixe um comentário</h2>
+            <form class="container-comentario" method="post" action="../../backend/salvarComentario.php">
+                <textarea name="comentario"></textarea>
+                <button type="button" onclick="openModal()">Responder</button>
+                <input name="id_post" value="<?= $id_post ?>">
+            </form>
+            <?php
+            
+                $comentarios_pais = catarComentariosPais($id_post);
+
+                foreach($comentarios_pais as $comentarios){
+
+                    $comentarios_filhos = catarComentariosFilhos($id_post, $comentarios['id_comentario']);
+
+                    echo<<<html
+                        <form class="container-comentario" method="post" action="../../backend/salvarComentario.php">
+                        
+                            <span class="nome-usuario">{$comentarios['nome']}</span>
+                            <textarea readonly>{$comentarios['conteudo']}</textarea>
+                            <input name="id_comentario_pai" value="{$comentarios['id_comentario']}">
+                        html;
+                            foreach($comentarios_filhos as $subcomentarios){
+                                echo<<<html
+                                <div class="container-comentario filho">
+                                    <span class="nome-usuario">{$subcomentarios['nome']}</span>
+                                    <textarea readonly>{$subcomentarios['conteudo']}</textarea>
+                                </div>
+                                html;
+                            }
+                            echo<<<html
+                                <div class="container-comentario filho">
+                                    <textarea name="comentario"></textarea>
+                                    <button type="button" onclick="openModal()">Responder</button>
+                                    <input name="id_post" value="{$id_post}">
+                                </div>
+                        </form>
+                html;
+                }
+
+            ?>
+        </div>
+
+        <?php
+        
+            }
+        
+        ?>
 
     </main>
 

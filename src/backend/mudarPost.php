@@ -4,28 +4,16 @@
 
     require('database/cmsCRUD.php');
 
-    $id_post = $_POST["id_post"];
+    $id_post = $_GET["id_post"];
 
-    if(isset($_POST["acao"])){
-        $oqueFazer = $_POST["acao"];
+    // Resgata os dados necessários para serem alterados.
+    $dados = resgataPost($id_post);
 
-        if($oqueFazer === 'excluir'){
+    // Recuperando a string das tags
+    $tags = implode(", ", $dados['tags']);
 
-            removePost($id_post);
-
-            header("Location: ../frontend/php/cms.php");
-            exit();
-
-        } else {
-
-            // Resgata os dados necessários para serem alterados.
-            $dados = resgataPost($id_post);
-
-            // Recuperando a string das tags
-            $tags = implode(", ", $dados['tags']);
-
-            // Recuperando a data
-            $data = substr($dados['post']['data_criacao'], 0, 10);
+    // Recuperando a data
+    $data = substr($dados['post']['data_criacao'], 0, 10);
 
 
 ?>
@@ -208,12 +196,3 @@
     
 </body>
 </html>
-
-<?php
-
-        }
-
-    }
-
-
-?>
