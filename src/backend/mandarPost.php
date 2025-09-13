@@ -3,22 +3,17 @@
 
     require('database/cmsCRUD.php');
 
-    // Pegando o id do autor do post
+    // Colunas que ja vem no formato desejado
     $id_autor = $_SESSION['id'];
-
-    // Salvando os dados do post
     $titulo = $_POST['titulo'];
     $subtitulo = $_POST['subtitulo'];
     $data = $_POST['data'];
     $conteudo = $_POST["conteudo"];
-
-    // Tabelas separadas
     $id_categoria = $_POST['categoria'];
-    $tags = $_POST['tags'];
 
-    // os jogos chegam como arquivo JSON, então é necessário decodificar o JSON
-    // Assim ele sai do formato "["1"]" e vai para "1,2"
-    // podendo ser usado no implode para separar em valores de uma array
+    // os jogos e eventos chegam como arquivo JSON, então é necessário decodificar o JSON
+    // Após decodificar ele ficara em formato de array => Array[0] = "1", Array[1] = "2"
+    // Dai é utilizado o implode para juntar esses indexes => {1,2}
     $array_jogos = json_decode($_POST['jogos'], true) ?? [];
     $jogos_formatados = '{' . implode(',', $array_jogos) . '}';
 
@@ -26,14 +21,8 @@
     $eventos_formatados = '{' . implode(',', $array_eventos) . '}';
 
     // Processando as tags para uso
-    // 1. Dividir a string em um array usando a vírgula como delimitador
-    $arrayTemporario = explode(',', $tags);
-
-    // 2. Remover espaços em branco de cada item e criar o array final
-    $tagsLimpos = array_map('trim', $arrayTemporario);
-
-    // 3. Pegar apenas os dois primeiros elementos
-    $tagsSelecionadas = array_slice($tagsLimpos, 0, 2);
+    // Divide a string em um array usando a vírgula como delimitador
+    $tags = explode(',', $_POST['tags']);
 
 
     // Tratando imagem caso tenha sido enviada
@@ -91,14 +80,14 @@
     if (isset($_POST['post'])){
         $id_post = $_POST['post'];
 
-        atualizaPost($id_post, $conteudo, $data, $id_autor, $titulo, $subtitulo, $id_categoria, $bytes, $tagsSelecionadas, $jogos_formatados, $eventos_formatados);
+        atualizaPost($id_post, $conteudo, $data, $id_autor, $titulo, $subtitulo, $id_categoria, $bytes, $tags, $jogos_formatados, $eventos_formatados);
 
         header('Location: ../frontend/php/cms.php');
         exit();
 
     } else {
         // Salvando o id do post para posteriormente salvar a imagem no banco de dados.
-        criaPost($conteudo, $data, $id_autor, $titulo, $subtitulo, $id_categoria, $bytes, $tagsSelecionadas, $jogos_formatados, $eventos_formatados);
+        criaPost($conteudo, $data, $id_autor, $titulo, $subtitulo, $id_categoria, $bytes, $tags, $jogos_formatados, $eventos_formatados);
 
         header('Location: src/frontend/php/cms.php');
         exit();

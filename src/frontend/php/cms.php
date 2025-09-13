@@ -133,6 +133,7 @@
 
                 </section>
                 <section class="info-opcional">
+                    <span class="warning">Retire o container vazio</span>
                     
                     <section class="btns-add">
                         <button 

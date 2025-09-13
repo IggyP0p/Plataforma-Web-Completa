@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="../css/noticias.css">
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <script src="../frontend/js/modal.js" defer></script>
     <script src="../js/modal.js" defer></script>
 
 </head>

@@ -151,29 +151,35 @@
 
                 </section>
                 <section class="info-opcional">
+                    <span class="warning">Retire o container vazio</span>
                     <?php
                         foreach ($dados['post']['conteudo'] as $chave => $valor) {
                             if(str_contains($chave, 'Titulo')){
                                 echo    
-                                    "<div class='cabecalho'>
-                                        <label>Titulo:</label>
-                                        <span onclick='cancelaTopico(this)'>&times;</span>
-                                    </div>
-                                    <input type='text' value='{$valor}'>"
+                                    "<section id='{$chave}'>
+                                        <div class='cabecalho'>
+                                            <label>Titulo:</label>
+                                            <span onclick='cancelaTopico(this)'>&times;</span>
+                                        </div>
+                                        <input type='text' value='{$valor}'>
+                                    </section>"
                                     ;
                             } else if (str_contains($chave, 'Texto')){
                                 echo    
-                                    "<div class='cabecalho'>
-                                        <label>Conteúdo:</label>
-                                        <span onclick='cancelaTopico(this)'>&times;</span>
-                                    </div>
-                                    <textarea>{$valor}</textarea>"
+                                    "<section id='{$chave}'>
+                                        <div class='cabecalho'>
+                                            <label>Conteúdo:</label>
+                                            <span onclick='cancelaTopico(this)'>&times;</span>
+                                        </div>
+                                        <textarea>{$valor}</textarea>
+                                    </section>"
                                     ;
                             }
                         }
                     ?>
-                    
+
                     <section class="btns-add">
+                        
                         <button 
                             class="btn-add" 
                             type="button" 

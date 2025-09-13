@@ -1,7 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
     const telaCriar = document.getElementById("tela-criar");
 
-    telaCriar.style.display = "none";
+    if(telaCriar){
+      telaCriar.style.display = "none";
+    }
+      
 });
 
 

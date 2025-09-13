@@ -1,0 +1,11 @@
+Erro na consulta: SQLSTATE[22P02]: Invalid text representation: 7 ERRO:  matriz mal formada: "{TAG,}"
+DETAIL:  Caracter "}" inesperado.
+CONTEXT:  parâmetro de portal sem nome $8 = '...'
+Erro na consulta: SQLSTATE[22P02]: Invalid text representation: 7 ERRO:  matriz mal formada: "{TAG,}"
+DETAIL:  Caracter "}" inesperado.
+CONTEXT:  parâmetro de portal sem nome $8 = '...'
+Erro na consulta: SQLSTATE[22P02]: Invalid text representation: 7 ERRO:  matriz mal formada: "{TAG,}"
+DETAIL:  Caracter "}" inesperado.
+CONTEXT:  parâmetro de portal sem nome $8 = '...'
+
+================================

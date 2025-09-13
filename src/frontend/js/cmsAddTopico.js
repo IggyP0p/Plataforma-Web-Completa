@@ -62,10 +62,13 @@ function adicionaTitulo(){
     let btnSecao = document.querySelector(".btns-add");
     let novaSecao = document.createElement('section');
 
+    // inserindo na nova section
     novaSecao.innerHTML = secaoTitulo;
 
+    // inserindo no espaço do html
     Painel.insertBefore(novaSecao, btnSecao);
 
+    // ajeitando os nomes
     consertaNomes("Titulo-");
 }
 

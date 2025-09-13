@@ -63,20 +63,30 @@ function ProcessarDados(id_post){
     // Tags
     let tags = document.getElementById('tags').value;
     if (tags) {
-        // 1. Limpa a string e a divide em um array
-        let palavras = tags.trim().toLowerCase().split(',');
-        
-        // 2. Remove espaços extras que possam ter ficado após a vírgula
-        palavras = palavras.map(palavra => palavra.trim());
 
-        // 3. Verifica se o primeiro e o segundo elementos do array são idênticos
-        // Se o array tiver menos de 2 palavras, essa verificação não ocorrerá
-        if (palavras.length >= 2 && palavras[0] === palavras[1]) {
+
+        // Limpa a string e a divide em um array
+        tags = tags.trim().toLowerCase().split(',');
+        
+        // Remove espaços extras que possam ter ficado após a vírgula
+        tags = tags.map(palavra => palavra.trim());
+
+        // Método Filter() para retirar espaços vazios ['tag', ' '] causados por uso excessivo de virgulas
+        tags = tags.filter(elemento => elemento !== '');
+
+        // coloca toda as tags em lower case para adição no banco de dados
+        tags = tags.map(elemento => elemento.toLowerCase());
+
+        // Cria um set para a verificação de duplicatas
+        // Se houver tamanhos diferentes, quer dizer que o set eliminou uma duplicata
+        const verificaDuplicatas = new Set(tags);
+
+        if(verificaDuplicatas.size !== tags.length){
             warnings[4].style.display = "flex";
-            warnings[4].innerText = "As tags não podem ser iguais."; // Opcional: Adiciona uma mensagem de erro
+            warnings[4].innerText = "As tags não podem ser iguais.";
             return; 
         }
-
+        console.log(tags);
         formData.append('tags', tags);
         warnings[4].style.display = "none";
 
@@ -139,7 +149,9 @@ function ProcessarDados(id_post){
     let conteudoInfo = new Map();
     mainSection = document.querySelector(".info-opcional");
     secoes = mainSection.getElementsByTagName('section');
+
     // Joga os titulos,conteudos como "chave:dado" para o formData
+    warnings[6].style.display = "none";
     if(secoes){
         for (let i = 0; i < secoes.length - 1; i++) {
 
@@ -149,6 +161,10 @@ function ProcessarDados(id_post){
                     conteudoInfo.set(secoes[i].id, inputs[0].files[0]);
 
                 } else {
+                    if(inputs[0].value === ''){
+                        warnings[6].style.display = "flex";
+                        return;
+                    }
                     conteudoInfo.set(secoes[i].id, inputs[0].value);
 
                 }
@@ -156,13 +172,23 @@ function ProcessarDados(id_post){
             
             let textareas = secoes[i].getElementsByTagName('textarea');
             if (textareas.length > 0) {
+                if(textareas[0].value === ''){
+                    warnings[6].style.display = "flex";
+                    return;
+                }
                 conteudoInfo.set(secoes[i].id, textareas[0].value);
             }
         }
     }
 
+
+    conteudoInfo.forEach((valor, chave) => {
+        if(valor === "")return;
+    });
+
     // Conteúdo (transformando o Map em objeto)
     let conteudo = Object.fromEntries(conteudoInfo);
+
     // Agora temos o JSONs separados:
     let json = JSON.stringify(conteudo, null, 4);
     formData.append('conteudo', json);
