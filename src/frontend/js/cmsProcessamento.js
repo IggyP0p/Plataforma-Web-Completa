@@ -86,7 +86,7 @@ function ProcessarDados(id_post){
             warnings[4].innerText = "As tags não podem ser iguais.";
             return; 
         }
-        console.log(tags);
+
         formData.append('tags', tags);
         warnings[4].style.display = "none";
 
@@ -194,12 +194,6 @@ function ProcessarDados(id_post){
     formData.append('conteudo', json);
 
 
-    // Debuger
-    for (let pair of formData.entries()) {
-        console.log(pair[0] + ':', pair[1]);
-    }
-
-
     if(id_post !== undefined){
         formData.append('post', id_post);
         dir = 'mandarPost.php';
@@ -227,7 +221,6 @@ async function enviarDadosParaPHP(dados, dir, href){
         
         alert('Post enviado com sucesso!');
         const resultado = await response;
-        console.log(resultado);
 
     } catch (error) {
         console.error('Erro:', error);

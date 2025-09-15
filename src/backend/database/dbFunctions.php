@@ -1,4 +1,6 @@
 <?php
+
+
     function listarPosts($limit){
 
         require("conexao.php");
@@ -60,6 +62,7 @@
 
         }
     }
+
 
     function listarPostsFiltrado($limit, $id_jogos, $id_categoria, $id_tags, $id_eventos){
         
@@ -176,6 +179,7 @@
         }
     }
 
+
     function salvaComentario($conteudo, $usuario, $post, $id_comentario_pai=null){
         require('conexao.php');
 
@@ -210,6 +214,7 @@
         }
     }
 
+
     function associaComentarios($id_comentario_filho, $id_comentario_pai){
         require('conexao.php');
 
@@ -234,6 +239,7 @@
 
         }
     }
+
 
     function catarComentariosPais($id_post){
         require('conexao.php');
@@ -263,6 +269,7 @@
         }
     }
 
+
     function catarComentariosFilhos($id_post , $id_comentario_pai){
         require('conexao.php');
 
@@ -289,6 +296,79 @@
         } catch (PDOException $e) {
             // Se ocorrer um erro, exibe a mensagem de erro
             file_put_contents("../../backend/logs.txt", "Erro na consulta: " . $e->getMessage() . "\n", FILE_APPEND);
+
+        }
+    }
+
+
+    function cataTags(){
+        require('conexao.php');
+
+        try {
+
+            $sql = 'SELECT * FROM tags';
+
+            $query = $conn->prepare($sql);
+
+            $query->execute();
+
+            $resultado = $query->fetchAll(PDO::FETCH_ASSOC);
+
+            return $resultado;
+
+        } catch (PDOException $e) {
+            // Se ocorrer um erro, exibe a mensagem de erro
+            file_put_contents("../../backend/logs.txt", "Erro na consulta: " . $e->getMessage() . "\n", FILE_APPEND);
+
+        }
+    }
+
+
+    function filtrandoVIEW(string $consulta, $limit){
+        require('conexao.php');
+
+        $limite = ' LIMIT ' . $limit;
+
+        try {
+
+            $sql = 'SELECT *
+                    FROM posts_para_filtro'
+                    . $consulta . $limite;
+            ;
+
+            $query = $conn->prepare($sql);
+
+            $query->execute();
+
+            while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                // A coluna 'imagem' é um recurso (stream), não uma string.
+                $imagem_stream = $row['imagem'];
+
+                // Lemos o conteúdo do stream para obter a string binária
+                $conteudo_binario = stream_get_contents($imagem_stream);
+
+                // Define o tipo MIME diretamente, pois a imagem sempre será convertida para JPEG
+                $tipo_mime = 'image/jpeg';
+
+                // Codifica os dados binários para Base64
+                $dados_base64 = base64_encode($conteudo_binario);
+
+                // Cria o Data URI
+                $data_url = "data:$tipo_mime;base64," . $dados_base64;
+                
+                // Atualiza o valor da imagem no array $row antes de adicioná-lo
+                $row['imagem'] = $data_url;
+
+                // Adiciona o post com a imagem atualizada ao array de posts
+                $posts[] = $row;
+
+            }            
+
+            return $posts;
+
+        } catch (PDOException $e) {
+            // Se ocorrer um erro, exibe a mensagem de erro
+            file_put_contents("logs.txt", "Erro na consulta: " . $e->getMessage() . "\n", FILE_APPEND);
 
         }
     }

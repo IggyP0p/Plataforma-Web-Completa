@@ -11,7 +11,6 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: RGB(34, 34, 34);
 
     background: linear-gradient(135deg, RGB(34, 34, 34) 65%, RGB(255,255,255) 35%);
 }

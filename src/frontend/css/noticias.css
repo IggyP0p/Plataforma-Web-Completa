@@ -1,54 +1,60 @@
 body {
     grid-template-columns: repeat(9, 1fr); /* 4 colunas de tamanho igual */
-    grid-template-rows: 75px 960px 160px; /* 6 linhas de tamanhos diferentes */
-    /* ORDEM: HEADER, NOTICIAS, FOOTER*/
+    grid-template-rows: 75px auto 160px; /* 6 linhas de tamanhos diferentes */
+    /* ORDEM: HEADER, NOTICIAS, FOOTER  740px*/ 
 }
 
+/* ==================== Sidebar ==================== */
 aside {
     grid-column: 1/3;
     grid-row: 2;
-    background-color: RGB(34, 34, 34);
-    width: 100%;
-    height: 100%;
+    width: 100%; height: 100%;
+    background-color: #1e1e2f;
+    color: #fff;
+    position: static; /* ou relative */
+    padding: 20px;
+    overflow-y: visible; /* não precisa de scroll */
+    padding-top: 40px;
 }
 
-.container-filtro {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    margin: 80px 0px 0px -20px;
-}
-
-aside span {
-    font-size: 18pt;
+.container-filtro span {
     font-weight: bold;
+    font-size: 1.2em;
+    display: block;
+    margin-bottom: 15px;
 }
 
-aside ul {
-    font-size: 16pt;
-    font-weight: bold;
-    margin-top: 20px;
+.container-filtro ul {
+    list-style: none;
+    padding: 0;
 }
 
-aside li {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    font-size: 12pt;
-    margin: 20px 0px 20px 0px; 
+.container-filtro li {
+    margin-bottom: 20px;
+    font-size: 1em;
 }
 
-aside a {
+.opcao {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 5px 5px 0 0;
+    border-radius: 6px;
+    font-size: 0.9em;
     cursor: pointer;
-    font-size: 10pt;
-    transition: all 0.3s ease;
-    margin-left: 15px;
-    color: rgba(170,170,170,1);
+    transition: background 0.3s;
 }
 
-aside a:hover {
-    color: rgba(200, 170, 110, 1);
+.default {
+    color: #fff;
+    background: rgba(42, 42, 64, 0.7);
+}
+
+.clicked {
+    background: rgba(32, 32, 84, 1);
+}
+
+.opcao:hover {
+    background: #3e3e60;
 }
 
 main {
@@ -63,6 +69,8 @@ main {
 
     display: flex;
     flex-direction: column;
+    margin-bottom: 30px;
+    height: 100%; width: auto;
     gap: 30px;
 
     background-color: white;
@@ -78,20 +86,21 @@ main {
 
 .container-noticias {
     display: flex;
-    flex-direction: row;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 30px;
+    
+    
+
     margin: 0px 40px 0px 40px;
 }
 
 .noticia {
-    width: 50%;
-    height: 100%;
-
+    width: 48%; height: auto;
+    
 }
 
 .noticia-moldura {
-    width: 100%;
-    height: 55%;
+    width: 100%; height: auto;
     overflow: hidden;
 }
 

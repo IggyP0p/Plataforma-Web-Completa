@@ -144,7 +144,7 @@
             <button>Ir agora!</button>
         </div>
         
-        <img src="../../utils/img/Comunidade.jpg">
+        <img src="../../utils/img/desenvolvedores.jpeg">
     </section>
 
     <?php

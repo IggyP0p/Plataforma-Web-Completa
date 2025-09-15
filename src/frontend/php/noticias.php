@@ -2,6 +2,8 @@
 
     session_start();
 
+    require('../../backend/database/dbFunctions.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +16,7 @@
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/footer.css">
     <script src="../js/modal.js" defer></script>
+    <script src="../js/botoesFiltro.js" defer></script>
 
 </head>
 <body>
@@ -27,60 +30,29 @@
             <span>FILTRAR</span>
             <ul>
                 <li>Categoria:
-                    <a id="opcao">ESPORTS</a>
-                    <!--
-                    <div class="opcao">
-                        <input type="radio" id="esports" name="categoria">
-                        <label>ESPORTS</label>
-                    </div>
-                    <div class="opcao">
-                        <input type="radio" id="Patch-notes" name="categoria">
-                        <label for="Patch-notes">PATCH NOTES</label>
-                    </div>
-                    -->
-                    <a id="opcao">PATCH NOTES</a>
-                </li>
-                <li>Tag:
-                    <a id="opcao">Dentro da Rito</a>
-                    
+                    <a class="default opcao" name="categoria" id="1" onclick="filtrar(this)">ESPORTS</a>
+                    <a class="default opcao" name="categoria" id="2" onclick="filtrar(this)">ATUALIZAÇÃO DE JOGO</a>
+                    <a class="default opcao" name="categoria" id="3" onclick="filtrar(this)">BLOG</a>
                 </li>
                 <li>Jogo:
-                    <a id="opcao">Liga das lendas</a>
-                    <a id="opcao">VALOROSO</a>
-                    <a id="opcao">Taticas de time</a>
-                    <!--
-                    <div class="opcao">
-                        <input type="radio" id="LOL" name="jogo">
-                        <label for="LOL">Liga das lendas</label>
-                    </div>
-                    <div class="opcao">
-                        <input type="radio" id="VAVA" name="jogo">
-                        <label for="VAVA">VALOROSO</label>
-                    </div>
-                    <div class="opcao">
-                        <input type="radio" id="TFT" name="jogo">
-                        <label for="TFT">Taticas de time</label>
-                    </div>
-                    -->
+                    <a class="default opcao" name="jogo" id="1" onclick="filtrar(this)">Liga das Lendas</a>
+                    <a class="default opcao" name="jogo" id="2" onclick="filtrar(this)">Táticas de Time</a>
+                    <a class="default opcao" name="jogo" id="3" onclick="filtrar(this)">Valoroso</a>
                 </li>
                 <li>Evento:
-                    <a id="opcao">WORLDS</a>
-                    <a id="opcao">CHAMPIONS</a>
-                    <a id="opcao">LTA</a>
-                    <!--
-                    <div class="opcao">
-                        <input type="radio" id="worlds" name="evento">
-                        <label for="worlds">WORLDS</label>
-                    </div>
-                    <div class="opcao">
-                        <input type="radio" id="champions" name="evento">
-                        <label for="champions">CHAMPIONS</label>
-                    </div>
-                    <div class="opcao">
-                        <input type="radio" id="LTA" name="evento">
-                        <label for="LTA">LTA</label>
-                    </div>
-                    -->
+                    <a class="default opcao" name="evento" id="1" onclick="filtrar(this)">Worlds</a>
+                    <a class="default opcao" name="evento" id="2" onclick="filtrar(this)">Champions</a>
+                    <a class="default opcao" name="evento" id="3" onclick="filtrar(this)">Golden Spatula</a>
+                </li>
+                <li>Tags:
+                    <?php
+
+                        $nomes_das_tags = cataTags();
+
+                        foreach($nomes_das_tags as $tag){
+                            echo "<a class='default opcao' name='tag' id='{$tag['id_tag']}' onclick='filtrar(this)'>{$tag['nome_tag']}</a>";
+                        }
+                    ?>
                 </li>
             </ul>
         </div>
@@ -90,89 +62,58 @@
         <div class="ultimas-noticias">
             <h1>NOTICIAS</h1>
 
-            <div class="container-noticias">
-                <div class="noticia">
-                    <div class="noticia-moldura">
-                        <img src="../../utils/img/Champions_Paris.jpg">
-                    </div>
-                    <div class="noticia-info">
-                        <span class="noticia-categoria">ESPORTS</span>
-                        <hr>
-                        <span class="noticia-data">04/09/2025</span>
-                    </div>
-                    <div class="noticia-descricao">
-                        <h2 class="noticia-titulo">
-                            Tudo o que você precisa saber sobre o Champions Paris
-                        </h2>
-                        <p class="noticia-conteudo">
-                            Partidas, formato, datas e muito mais!
-                        </p>
-                    </div>
-                </div>
-                <div class="noticia">
-                    <div class="noticia-moldura">
-                        <img src="../../utils/img/vava_Patch_notes.jpg">
-                    </div>
-                    <div class="noticia-info">
-                        <span class="noticia-categoria">ATUALIZAÇÕES DO JOGO</span>
-                        <hr>
-                        <span class="noticia-data">01/09/2025</span>
-                    </div>
-                    <div class="noticia-descricao">
-                        <h2 class="noticia-titulo">
-                            Atualização 11.04 do VALOROSO
-                        </h2>
-                        <p class="noticia-conteudo">
-                            Novo mapa, Agentes e armas. Venha descobrir tudo sobre a nova atualização
-                        </p>
-                    </div>
-                </div>
+            <div class="container-noticias" id="container-noticias">
+                <?php
+
+                    $dados = listarPostsFiltrado(4, null, null, null, null);
+
+                    foreach ($dados as $post) {
+                        // CORTAR AS STRINGS
+                        $titulo = $post['titulo'];
+                        $subtitulo = $post['subtitulo'];
+                        $data = $post['data_criacao'];
+                        $tamanhoTitulo = 34;
+                        $tamanhoSubtitulo = 102;
+
+                        if(strlen($titulo) > $tamanhoTitulo){
+                            $titulo = substr($titulo, 0, $tamanhoTitulo - 3);
+                            $titulo = str_pad($titulo, $tamanhoTitulo, ".", STR_PAD_RIGHT);
+                        }
+
+                        if(strlen($subtitulo) > $tamanhoSubtitulo){
+                            $subtitulo = substr($subtitulo, 0, $tamanhoSubtitulo - 3);
+                            $subtitulo = str_pad($subtitulo, $tamanhoSubtitulo, ".", STR_PAD_RIGHT);
+                        }
+
+                        $data = substr($data, 0, 11);
+
+                        echo <<<html
+                                <div class="noticia" id="{$post['id_post']}">
+                                    <div class="noticia-moldura">
+                                        <img src="{$post['imagem']}">
+                                    </div>
+                                    <div class="noticia-info">
+                                        <span class="noticia-categoria">{$post['nome_categoria']}</span>
+                                        <hr>
+                                        <span class="noticia-data">{$data}</span>
+                                    </div>
+                                    <div class="noticia-descricao">
+                                        <h2 class="noticia-titulo">
+                                            {$titulo}
+                                        </h2>
+                                        <p class="noticia-conteudo">
+                                            {$subtitulo}
+                                        </p>
+                                    </div>
+                                </div>
+                            html
+                        ;
+                    }
+                ?>
                 
             </div>
 
-            <div class="container-noticias">
-                <div class="noticia">
-                    <div class="noticia-moldura">
-                        <img src="../../utils/img/tft_SET15.jpeg">
-                    </div>
-                    <div class="noticia-info">
-                        <span class="noticia-categoria">ATUALIZAÇÕES DO JOGO</span>
-                        <hr>
-                        <span class="noticia-data">13/08/2025</span>
-                    </div>
-                    <div class="noticia-descricao">
-                        <h2 class="noticia-titulo">
-                            Nova atualização, SET 15 do TFT.
-                        </h2>
-                        <p class="noticia-conteudo">
-                            Enfrentando a GenG de Chovy pela 89º vez, Faker faz um jogo implacável
-                            de Janna mid e leva para casa o trófeu.
-                        </p>
-                    </div>
-                </div>
-                <div class="noticia">
-                    <div class="noticia-moldura">
-                        <img src="../../utils/img/oldFaker.png">
-                    </div>
-                    <div class="noticia-info">
-                        <span class="noticia-categoria">ESPORTS</span>
-                        <hr>
-                        <span class="noticia-data">03/09/2025</span>
-                    </div>
-                    <div class="noticia-descricao">
-                        <h2 class="noticia-titulo">
-                            Após vencer seu 100º Mundial, Faker escolhe skin da Janna.
-                        </h2>
-                        <p class="noticia-conteudo">
-                            Enfrentando a GenG de Chovy pela 89º vez, Faker faz um jogo implacável
-                            de Janna mid e leva para casa o trófeu.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-
-                <button class="load-btn">Carregar mais</button>
+            <button class="load-btn" id="load-btn">Carregar mais</button>
         </div>
     </main>
 
